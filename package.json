@@ -1,0 +1,23 @@
+{
+  "name": "cyr-to-lat",
+  "version": "1.0.0",
+  "description": "Converter Cyrillic To Latin",
+  "author": "Dmitrii Baklai",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/pwa": "^3.3.4",
+    "core-js": "^3.8.2",
+    "nuxt": "^2.14.12",
+    "v-clipboard": "^2.2.3",
+    "vue-toasted": "^1.1.28"
+  },
+  "devDependencies": {
+    "@nuxtjs/vuetify": "^1.11.2"
+  }
+}
