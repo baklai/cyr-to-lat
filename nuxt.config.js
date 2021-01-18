@@ -60,7 +60,7 @@ export default {
       ogType: "website",
       ogHost: "baklai.github.io",
       ogImage: {
-        path: `${process.env.npm_package_name}/icon.png`,
+        path: `/${process.env.npm_package_name}/icon.png`,
         width: "50",
         height: "50",
         type: "image/png",
