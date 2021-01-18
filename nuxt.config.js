@@ -1,14 +1,17 @@
 import colors from "vuetify/es5/util/colors";
 
+const HOST = "baklai.github.io";
+
 export default {
-  ssr: process.env.GH_PAGES ? false : true,
-  target: process.env.GH_PAGES ? "static" : "server",
+  ssr: false,
+  target: "static",
 
   router: {
-    base: process.env.GH_PAGES ? `/${process.env.npm_package_name}/` : "/",
+    base: `/${process.env.npm_package_name}/`,
   },
 
   head: {
+    titleTemplate: `%s • ${process.env.npm_package_author_name}`,
     title: "Cyr To Lat",
     meta: [
       { charset: "utf-8" },
@@ -22,14 +25,12 @@ export default {
       {
         rel: "icon",
         type: "image/x-icon",
-        href: process.env.GH_PAGES
-          ? `/${process.env.npm_package_name}/favicon.ico`
-          : "/favicon.ico",
+        href: `/favicon.ico`,
       },
     ],
   },
 
-  loading: { color: "#fff" },
+  loading: { color: "#000" },
 
   css: [],
 
@@ -55,12 +56,12 @@ export default {
       name: "Converter Cyrillic To Latin",
       author: process.env.npm_package_author_name,
       description: process.env.npm_package_description,
-      theme_color: "#000",
+      theme_color: "#fff",
       lang: "ru",
       ogType: "website",
-      ogHost: "baklai.github.io",
+      ogHost: HOST,
       ogImage: {
-        path: `/${process.env.npm_package_name}/icon.png`,
+        path: `/icon.png`,
         width: "50",
         height: "50",
         type: "image/png",
@@ -72,7 +73,7 @@ export default {
       description: process.env.npm_package_description,
       lang: "ru",
       display: "standalone",
-      background_color: "#000",
+      background_color: "#fff",
     },
   },
 
@@ -82,7 +83,7 @@ export default {
       iconfont: "mdi",
     },
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
