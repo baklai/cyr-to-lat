@@ -1,23 +1,25 @@
 {
   "name": "cyr-to-lat",
   "version": "1.0.0",
-  "description": "Converter Cyrillic To Latin",
+  "description": "Сервис для перевода строки текста из русской раскладки в английскую. Он ориентирован на пользователей, которые используют пароли на русском языке (зашифрованные в русской раскладке).",
   "author": "Dmitrii Baklai",
   "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "set GH_PAGES=true && nuxt generate",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
-    "@nuxtjs/pwa": "^3.3.4",
+    "@nuxtjs/meta": "^3.0.0-beta.16",
     "core-js": "^3.8.2",
     "nuxt": "^2.14.12",
     "v-clipboard": "^2.2.3",
     "vue-toasted": "^1.1.28"
   },
   "devDependencies": {
-    "@nuxtjs/vuetify": "^1.11.2"
+    "@nuxtjs/vuetify": "^1.11.2",
+    "@nuxtjs/pwa": "^3.3.4"
   }
 }

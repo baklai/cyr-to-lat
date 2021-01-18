@@ -36,7 +36,7 @@
 export default {
   layout: "default",
   head: {
-    title: `${process.env.appName} • О сервисе`,
+    title: `${this.$store.state.appName} • О сервисе`,
   },
   data: () => ({}),
   computed: {
@@ -45,7 +45,7 @@ export default {
     },
   },
   methods: {
-    home: function () {
+    home: function() {
       this.$router.push(`/`);
     },
   },

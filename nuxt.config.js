@@ -1,24 +1,32 @@
 import colors from "vuetify/es5/util/colors";
 
 export default {
-  ssr: true,
+  ssr: process.env.GH_PAGES ? false : true,
+  target: process.env.GH_PAGES ? "static" : "server",
+
+  router: {
+    base: process.env.GH_PAGES ? `/${process.env.npm_package_name}/` : "/",
+  },
 
   head: {
     title: "Cyr To Lat",
     meta: [
       { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "mobile-web-app-capable", content: "yes" },
-      { name: "apple-touch-fullscreen", content: "yes" },
-      { name: "apple-mobile-web-app-capable", content: "yes" },
-      { name: "apple-mobile-web-app-status-bar-style", content: "default" },
       {
         hid: "description",
         name: "description",
         content: process.env.npm_package_description || "",
       },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: process.env.GH_PAGES
+          ? `/${process.env.npm_package_name}/favicon.ico`
+          : "/favicon.ico",
+      },
+    ],
   },
 
   loading: { color: "#fff" },
@@ -32,26 +40,39 @@ export default {
 
   components: true,
 
-  buildModules: ["@nuxtjs/vuetify"],
+  buildModules: ["@nuxtjs/vuetify", "@nuxtjs/pwa"],
 
-  modules: ["@nuxtjs/pwa"],
+  modules: ["@nuxtjs/meta"],
 
   pwa: {
     meta: {
       charset: "utf-8",
-      title: "Cyr To Lat",
-      author: "Dmitrii Baklai",
+      viewport: "width=device-width, initial-scale=1",
+      mobileApp: true,
+      mobileAppIOS: true,
+      appleStatusBarStyle: "black",
+      favicon: true,
+      name: "Converter Cyrillic To Latin",
+      author: process.env.npm_package_author_name,
+      description: process.env.npm_package_description,
+      theme_color: "#000",
+      lang: "ru",
+      ogType: "website",
+      ogHost: "baklai.github.io",
+      ogImage: {
+        path: `${process.env.npm_package_name}/icon.png`,
+        width: "50",
+        height: "50",
+        type: "image/png",
+      },
     },
     manifest: {
       name: "Converter Cyrillic To Latin",
       short_name: "Cyr To Lat",
-      description: "Converter Cyrillic To Latin",
-      lang: "en",
-      start_url: "/",
+      description: process.env.npm_package_description,
+      lang: "ru",
       display: "standalone",
-      theme_color: "#000",
       background_color: "#000",
-      orientation: "portrait",
     },
   },
 
@@ -74,10 +95,6 @@ export default {
         },
       },
     },
-  },
-
-  env: {
-    appName: "Cyr To Lat",
   },
 
   build: {},
