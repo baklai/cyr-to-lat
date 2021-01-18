@@ -35,9 +35,6 @@
 <script>
 export default {
   layout: "default",
-  head: {
-    title: `${this.$store.state.appName} • О сервисе`,
-  },
   data: () => ({}),
   computed: {
     appName() {

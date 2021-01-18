@@ -138,11 +138,11 @@ export default {
     },
   },
   methods: {
-    info: function () {
+    info: function() {
       this.$router.push(`/about`);
     },
 
-    exit: function () {
+    exit: function() {
       this.$store.commit("appSignout");
     },
   },

@@ -83,7 +83,7 @@ export default {
       iconfont: "mdi",
     },
     theme: {
-      dark: false,
+      dark: true,
       themes: {
         dark: {
           primary: colors.blue.darken2,
