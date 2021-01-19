@@ -5,18 +5,12 @@
 
 @import "~vuetify/src/styles/styles.sass";
 
-$material-light: map-merge(
-  $material-light,
-  (
-    "background":
-      var(--v-background-base, map-get($material-light, "background")),
-  )
+$material-light: (
+  app-bar: #ffffff,
+  background: #eef5f9,
 );
-$material-dark: map-merge(
-  $material-dark,
-  (
-    "background":
-      var(--v-background-base, map-get($material-dark, "background")),
-    "app-bar": var(--v-background-base, map-get($material-dark, "background")),
-  )
+
+$material-dark: (
+  app-bar: #1a202c,
+  background: #1a202c,
 );
