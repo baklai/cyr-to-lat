@@ -1,6 +1,6 @@
 import colors from "vuetify/es5/util/colors";
 
-const HOST = `baklai.github.io/${process.env.npm_package_name}`;
+const HOST = "baklai.github.io";
 
 export default {
   ssr: false,
@@ -25,7 +25,7 @@ export default {
       {
         rel: "icon",
         type: "image/x-icon",
-        href: `/favicon.ico`,
+        href: `/${process.env.npm_package_name}/favicon.ico`,
       },
     ],
   },
@@ -61,7 +61,7 @@ export default {
       ogType: "website",
       ogHost: HOST,
       ogImage: {
-        path: `/icon.png`,
+        path: `/${process.env.npm_package_name}/icon.png`,
         width: "50",
         height: "50",
         type: "image/png",
