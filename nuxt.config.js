@@ -81,10 +81,14 @@ export default {
 
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
+    treeShake: true,
     icons: {
       iconfont: "mdi",
     },
     theme: {
+      options: {
+        customProperties: true,
+      },
       dark: true,
       themes: {
         dark: {
@@ -95,12 +99,12 @@ export default {
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,
-          background: colors.indigo.base,
+          background: "#1a202c",
+        },
+        light: {
+          background: "#ffffff",
         },
       },
-    },
-    darkTheme: {
-      background: "#2e1a6c",
     },
   },
 

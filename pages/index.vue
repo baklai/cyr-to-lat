@@ -1,13 +1,7 @@
 <template>
   <v-layout align-center>
     <v-flex>
-      <v-card
-        dark
-        max-width="500"
-        class="mx-auto"
-        color="transparent"
-        elevation="0"
-      >
+      <v-card max-width="500" class="mx-auto" color="transparent" elevation="0">
         <v-card-text>
           <v-container fluid>
             <v-row>
@@ -27,18 +21,18 @@
               <v-col cols="12">
                 <v-container fluid class="pa-0">
                   <div class="text-center">
-                    <v-btn class="mx-2" fab dark small @click="show = !show">
-                      <v-icon dark>
+                    <v-btn class="mx-2" fab small @click="show = !show">
+                      <v-icon>
                         {{ show ? "mdi-eye" : "mdi-eye-off" }}
                       </v-icon>
                     </v-btn>
 
-                    <v-btn class="mx-4" fab dark @click="convert()">
-                      <v-icon dark> mdi-cached </v-icon>
+                    <v-btn class="mx-4" fab @click="convert()">
+                      <v-icon> mdi-cached </v-icon>
                     </v-btn>
 
-                    <v-btn class="mx-2" fab dark small @click="exit()">
-                      <v-icon dark> mdi-exit-to-app </v-icon>
+                    <v-btn class="mx-2" fab small @click="exit()">
+                      <v-icon> mdi-exit-to-app </v-icon>
                     </v-btn>
                   </div>
                 </v-container>
@@ -60,7 +54,7 @@ export default {
     banner: require("@/assets/img/banner.png"),
   }),
   methods: {
-    autoKeyboardLang: function (str) {
+    autoKeyboardLang: function(str) {
       const cyr = [
         "й",
         "ц",
@@ -137,14 +131,14 @@ export default {
       ];
       for (let i = 0; i < cyr.length; i++) {
         const reg = new RegExp(cyr[i], "mig");
-        str = str.replace(reg, function (a) {
+        str = str.replace(reg, function(a) {
           return a == a.toLowerCase() ? en[i] : en[i].toUpperCase();
         });
       }
       return str;
     },
 
-    convert: function () {
+    convert: function() {
       if (this.valueInput) {
         let doubles = this.valueInput
           .split("")
@@ -187,7 +181,7 @@ export default {
       }
     },
 
-    exit: function () {
+    exit: function() {
       this.$store.commit("appSignout");
     },
   },
