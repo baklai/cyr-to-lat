@@ -102,7 +102,7 @@ export default {
           background: "#1a202c",
         },
         light: {
-          background: "#ffffff",
+          background: "#fff",
         },
       },
     },
