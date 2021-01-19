@@ -41,9 +41,9 @@ export default {
 
   components: true,
 
-  buildModules: ["@nuxtjs/vuetify", "@nuxtjs/pwa"],
+  buildModules: ["@nuxtjs/vuetify"],
 
-  modules: ["@nuxtjs/meta"],
+  modules: ["@nuxtjs/pwa", "@nuxtjs/meta"],
 
   pwa: {
     meta: {
