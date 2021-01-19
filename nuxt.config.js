@@ -75,6 +75,7 @@ export default {
       display: "standalone",
       background_color: "#fff",
       start_url: `/${process.env.npm_package_name}/`,
+      useWebmanifestExtension: true,
     },
   },
 
