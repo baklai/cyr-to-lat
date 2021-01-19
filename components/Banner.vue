@@ -26,23 +26,12 @@ export default {
     };
   },
   mounted() {
-    const workbox = window.$workbox;
-
-    if (workbox) {
-      workbox.addEventListener("installed", function(event) {
-        // If we don't do this we'll be displaying the notification after the initial installation, which isn't perferred.
-        if (event.isUpdate) {
-          // whatever logic you want to use to notify the user that they need to refresh the page.
-        }
-      });
-    }
-
     window.addEventListener("beforeinstallprompt", function(event) {
       event.preventDefault();
-      // if (event) {
-      this.deferredPrompt = true;
-      window.promptEvent = event;
-      // }
+      if (event) {
+        this.deferredPrompt = true;
+        window.promptEvent = event;
+      }
     });
   },
   methods: {
