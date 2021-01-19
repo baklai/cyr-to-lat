@@ -2,7 +2,7 @@ export const state = () => ({
   drawer: null,
   appName: process.env.appName,
   author: "Dmitrii Baklai",
-  copyright: "@Krápka}{ub Dev.",
+  copyright: "baklái}{ub Dev.",
   links: [
     {
       title: "Facebook",
