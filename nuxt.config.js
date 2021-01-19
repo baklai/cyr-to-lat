@@ -95,9 +95,12 @@ export default {
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,
-          background: "#e20074",
+          background: colors.indigo.base,
         },
       },
+    },
+    darkTheme: {
+      background: "#2e1a6c",
     },
   },
 
