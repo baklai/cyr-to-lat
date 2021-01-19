@@ -26,12 +26,12 @@ export default {
     };
   },
   mounted() {
-    window.addEventListener("beforeinstallprompt", function (event) {
+    window.addEventListener("beforeinstallprompt", function(event) {
       event.preventDefault();
-      if (event) {
-        this.deferredPrompt = true;
-        window.promptEvent = event;
-      }
+      // if (event) {
+      this.deferredPrompt = true;
+      window.promptEvent = event;
+      // }
     });
   },
   methods: {
@@ -41,7 +41,7 @@ export default {
     install() {
       window.promptEvent.prompt();
       this.deferredPrompt = null;
-      window.promptEvent.userChoice.then(function (choiceResult) {
+      window.promptEvent.userChoice.then(function(choiceResult) {
         if (choiceResult.outcome === "accepted") {
           console.info("mm User accepted the A2HS prompt");
         } else {
