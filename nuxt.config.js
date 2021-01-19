@@ -1,6 +1,6 @@
 import colors from "vuetify/es5/util/colors";
 
-const HOST = "baklai.github.io";
+const HOST = "https://baklai.github.io";
 
 export default {
   ssr: false,
