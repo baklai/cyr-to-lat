@@ -1,13 +1,7 @@
 <template>
   <v-layout align-center>
     <v-flex>
-      <v-card
-        dark
-        max-width="500"
-        class="mx-auto"
-        color="transparent"
-        elevation="0"
-      >
+      <v-card max-width="500" class="mx-auto" color="transparent" elevation="0">
         <v-card-title> О сервисе </v-card-title>
         <v-card-subtitle> {{ appName }} </v-card-subtitle>
         <v-card-text>
