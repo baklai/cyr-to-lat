@@ -6,14 +6,20 @@
           <v-container fluid>
             <v-row>
               <v-col cols="12">
-                <v-img max-height="150" max-width="100%" :src="banner"></v-img>
-
+                <v-img
+                  max-height="150"
+                  max-width="100%"
+                  :src="$vuetify.theme.dark ? bannerDark : banner"
+                ></v-img>
                 <v-text-field
                   :type="show ? 'text' : 'password'"
                   placeholder="введите текст для перевода"
                   class="my-4 mx-2 input-group--focused centered-input"
                   @click:append="show = !show"
                   v-model="valueInput"
+                  filled
+                  rounded
+                  dense
                 ></v-text-field>
               </v-col>
             </v-row>
@@ -52,6 +58,7 @@ export default {
     show: false,
     valueInput: null,
     banner: require("@/assets/img/banner.png"),
+    bannerDark: require("@/assets/img/banner-dark.png"),
   }),
   methods: {
     autoKeyboardLang: function(str) {

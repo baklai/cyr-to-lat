@@ -3,17 +3,18 @@
     <app-banner />
 
     <v-navigation-drawer v-model="drawer" app absolute temporary>
-      <v-list class="grey darken-4">
+      <v-list>
         <v-list-item two-line class="px-2">
           <v-list-item-avatar tile>
             <img src="@/static/icon.png" />
           </v-list-item-avatar>
           <v-list-item-content>
-            <v-list-item-title>{{ appName }}</v-list-item-title>
+            <v-list-item-title>Converter CyrToLat</v-list-item-title>
             <v-list-item-subtitle>from {{ author }}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
       </v-list>
+      <v-divider></v-divider>
       <v-list nav dense>
         <v-list-item
           v-for="item in links"
@@ -49,12 +50,14 @@
       </template>
     </v-navigation-drawer>
 
-    <v-app-bar app clipped-left dense flat class="mx-auto">
-      <v-toolbar-title>
+    <v-app-bar app clipped-left flat class="mx-auto" max-width="500">
+      <v-toolbar-title class="d-inline">
         <v-avatar left tile size="32">
           <img src="@/static/icon.svg" alt="logo" />
         </v-avatar>
-        CytToLat
+        <p class="d-inline">Cyt</p>
+        <p class="d-inline">To</p>
+        <p class="d-inline">Lat</p>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon @click="toggle_dark_mode">
@@ -63,13 +66,13 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
 
-    <v-main>
+    <v-main max-width="500">
       <v-container fill-height>
         <nuxt />
       </v-container>
     </v-main>
 
-    <v-footer tile padless class="mx-auto" color="transparent">
+    <v-footer tile padless class="mx-auto" color="transparent" max-width="500">
       <v-card flat tile class="text-center" color="transparent">
         <v-card-text>
           <v-btn
