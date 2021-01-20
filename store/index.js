@@ -12,7 +12,7 @@ export const state = () => ({
     {
       title: "Github",
       icon: "mdi-github",
-      href: "https://github.com/baklai",
+      href: "https://baklai.github.io",
     },
     {
       title: "Linkedin",
