@@ -2,8 +2,13 @@ import colors from "vuetify/es5/util/colors";
 
 const HOST = "https://baklai.github.io";
 
+/// https://isometric.online/
+
 export default {
+  telemetry: false,
+
   ssr: false,
+
   target: "static",
 
   router: {
@@ -32,7 +37,7 @@ export default {
 
   loading: { color: "#000" },
 
-  css: [],
+  css: ["~/assets/variables.css"],
 
   plugins: [
     { src: "~/plugins/clipboard.js", mode: "client" },

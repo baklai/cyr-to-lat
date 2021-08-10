@@ -1,6 +1,96 @@
 <template>
   <v-app>
-    <app-banner />
+    <!-- <app-banner /> -->
+    <v-navigation-drawer app permanent mini-variant absolute class="pt-4">
+      <v-avatar size="42" class="d-block text-center mx-auto mb-9">
+        <img src="@/static/icon.svg" alt="app-logo" />
+      </v-avatar>
+
+      <!-- <v-list dense flat class="mt-2">
+        <v-list-item link class="mb-2" to="/">
+          <v-tooltip right>
+            <template v-slot:activator="{ on, attrs }">
+              <v-list-item-icon v-bind="attrs" v-on="on">
+                <v-icon>mdi-home-outline</v-icon>
+              </v-list-item-icon>
+            </template>
+            <span>Home</span>
+          </v-tooltip>
+          <v-list-item-content>
+            <v-list-item-title>Home</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list> -->
+
+      <template v-slot:append>
+        <v-list dense flat class="mt-2">
+          <!-- <v-list-item
+            link
+            class="mb-2 d-none d-lg-block"
+            target="_blank"
+            v-for="item in socialLinks"
+            :key="item.title"
+            :href="item.href"
+          >
+            <v-tooltip right>
+              <template v-slot:activator="{ on, attrs }">
+                <v-list-item-icon v-bind="attrs" v-on="on">
+                  <v-icon color="#252526">{{ item.icon }}</v-icon>
+                </v-list-item-icon>
+              </template>
+              <span>{{ item.title }}</span>
+            </v-tooltip>
+            <v-list-item-content>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item> -->
+
+          <v-list-item link class="my-2" @click.prevent="toggle_dark_mode">
+            <v-tooltip right>
+              <template v-slot:activator="{ on, attrs }">
+                <v-list-item-icon v-bind="attrs" v-on="on">
+                  <v-icon>mdi-theme-light-dark</v-icon>
+                </v-list-item-icon>
+              </template>
+              <span>Theme light/dark</span>
+            </v-tooltip>
+            <v-list-item-content>
+              <v-list-item-title>Theme light/dark</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-divider class="mx-4"></v-divider>
+
+          <v-list-item link class="my-2" to="/about">
+            <v-tooltip right>
+              <template v-slot:activator="{ on, attrs }">
+                <v-list-item-icon v-bind="attrs" v-on="on">
+                  <v-icon>mdi-help-circle-outline</v-icon>
+                </v-list-item-icon>
+              </template>
+              <span>Help</span>
+            </v-tooltip>
+            <v-list-item-content>
+              <v-list-item-title>Help</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <!-- <v-list-item link v-if="$auth.loggedIn" @click="Logout">
+            <v-tooltip right>
+              <template v-slot:activator="{ on, attrs }">
+                <v-list-item-icon v-bind="attrs" v-on="on">
+                  <v-icon>mdi-logout-variant</v-icon>
+                </v-list-item-icon>
+              </template>
+              <span>Signout</span>
+            </v-tooltip>
+            <v-list-item-content>
+              <v-list-item-title>Signout</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item> -->
+        </v-list>
+      </template>
+    </v-navigation-drawer>
 
     <v-navigation-drawer v-model="drawer" app absolute temporary>
       <v-list>
@@ -50,7 +140,7 @@
       </template>
     </v-navigation-drawer>
 
-    <v-app-bar app clipped-left flat class="mx-auto" max-width="500">
+    <!-- <v-app-bar app clipped-left flat class="mx-auto px-15">
       <v-toolbar-title class="d-inline">
         <v-avatar left tile size="32">
           <img src="@/static/icon.svg" alt="logo" />
@@ -64,15 +154,13 @@
         <v-icon>mdi-theme-light-dark</v-icon>
       </v-btn>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-    </v-app-bar>
+    </v-app-bar> -->
 
-    <v-main max-width="500">
-      <v-container fill-height>
-        <nuxt />
-      </v-container>
+    <v-main>
+      <nuxt />
     </v-main>
 
-    <v-footer tile padless class="mx-auto" color="transparent" max-width="500">
+    <!-- <v-footer tile padless class="mx-auto" color="transparent">
       <v-card flat tile class="text-center" color="transparent">
         <v-card-text>
           <v-btn
@@ -97,7 +185,7 @@
           Copyright &copy; {{ new Date().getFullYear() }} {{ copyright }}
         </v-card-text>
       </v-card>
-    </v-footer>
+    </v-footer> -->
   </v-app>
 </template>
 
@@ -111,6 +199,7 @@ export default {
   data() {
     return {
       drawer: false,
+      icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
     };
   },
   mounted() {
@@ -159,3 +248,12 @@ export default {
   },
 };
 </script>
+
+<style>
+.v-main {
+  /* background-image: url("/img/bg-app.png") !important;*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>

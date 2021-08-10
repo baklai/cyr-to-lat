@@ -1,6 +1,63 @@
 <template>
-  <v-layout align-center>
-    <v-flex>
+  <v-container fill-height fluid>
+    <v-row align="center" justify="center">
+      <v-col cols="12" md="4" class="mx-10">
+        <h1 class="font-weight-light display-1">
+          <strong>Converter CyrToLat</strong>
+        </h1>
+        <h3 class="font-weight-light mb-3">
+          Данный онлайн сервис разработан специально для перевода строки текста
+          из русской раскладки в английскую.
+        </h3>
+        <v-row>
+          <v-col cols="12" class="d-flex align-center">
+            <v-text-field
+              :type="show ? 'text' : 'password'"
+              placeholder="введите текст для перевода"
+              class="my-4 mx-2 input-group--focused centered-input"
+              @click:append="show = !show"
+              v-model="valueInput"
+              filled
+              rounded
+              dense
+            ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="12">
+            <v-container fluid class="pa-0">
+              <div class="text-center">
+                <v-btn class="mx-2" fab small @click="show = !show">
+                  <v-icon>
+                    {{ show ? "mdi-eye" : "mdi-eye-off" }}
+                  </v-icon>
+                </v-btn>
+
+                <v-btn class="mx-4" fab @click="convert()">
+                  <v-icon> mdi-cached </v-icon>
+                </v-btn>
+
+                <v-btn class="mx-2" fab small @click="exit()">
+                  <v-icon> mdi-exit-to-app </v-icon>
+                </v-btn>
+              </div>
+            </v-container>
+          </v-col>
+        </v-row>
+      </v-col>
+
+      <v-col cols="12" md="4" class="d-none d-md-flex">
+        <v-img
+          :src="require(`~/assets/img/bg-app.png`)"
+          class="d-block ml-auto mr-auto"
+          max-width="600px"
+        />
+      </v-col>
+    </v-row>
+  </v-container>
+
+  <!-- <v-flex>
       <v-card max-width="500" class="mx-auto" color="transparent" elevation="0">
         <v-card-text>
           <v-container fluid>
@@ -47,8 +104,7 @@
           </v-container>
         </v-card-text>
       </v-card>
-    </v-flex>
-  </v-layout>
+    </v-flex> -->
 </template>
 
 <script>
@@ -61,7 +117,7 @@ export default {
     bannerDark: require("@/assets/img/banner-dark.png"),
   }),
   methods: {
-    autoKeyboardLang: function(str) {
+    autoKeyboardLang: function (str) {
       const cyr = [
         "й",
         "ц",
@@ -138,14 +194,14 @@ export default {
       ];
       for (let i = 0; i < cyr.length; i++) {
         const reg = new RegExp(cyr[i], "mig");
-        str = str.replace(reg, function(a) {
+        str = str.replace(reg, function (a) {
           return a == a.toLowerCase() ? en[i] : en[i].toUpperCase();
         });
       }
       return str;
     },
 
-    convert: function() {
+    convert: function () {
       if (this.valueInput) {
         let doubles = this.valueInput
           .split("")
@@ -188,7 +244,7 @@ export default {
       }
     },
 
-    exit: function() {
+    exit: function () {
       this.$store.commit("appSignout");
     },
   },
