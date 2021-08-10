@@ -55,7 +55,7 @@
         <v-avatar left tile size="32">
           <img src="@/static/icon.svg" alt="logo" />
         </v-avatar>
-        <p class="d-inline">Cyt</p>
+        <p class="d-inline">Cyr</p>
         <p class="d-inline">To</p>
         <p class="d-inline">Lat</p>
       </v-toolbar-title>
@@ -144,15 +144,15 @@ export default {
     },
   },
   methods: {
-    info: function() {
+    info: function () {
       this.$router.push(`/about`);
     },
 
-    exit: function() {
+    exit: function () {
       this.$store.commit("appSignout");
     },
 
-    toggle_dark_mode: function() {
+    toggle_dark_mode: function () {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
       localStorage.setItem("dark_theme", this.$vuetify.theme.dark.toString());
     },
