@@ -6,7 +6,7 @@
         <img src="@/static/icon.svg" alt="app-logo" />
       </v-avatar>
 
-      <!-- <v-list dense flat class="mt-2">
+      <v-list dense flat class="mt-2">
         <v-list-item link class="mb-2" to="/">
           <v-tooltip right>
             <template v-slot:activator="{ on, attrs }">
@@ -20,7 +20,21 @@
             <v-list-item-title>Home</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-      </v-list> -->
+
+        <v-list-item link class="my-2" to="/about">
+          <v-tooltip right>
+            <template v-slot:activator="{ on, attrs }">
+              <v-list-item-icon v-bind="attrs" v-on="on">
+                <v-icon>mdi-help-circle-outline</v-icon>
+              </v-list-item-icon>
+            </template>
+            <span>Help</span>
+          </v-tooltip>
+          <v-list-item-content>
+            <v-list-item-title>Help</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
 
       <template v-slot:append>
         <v-list dense flat class="mt-2">
@@ -61,21 +75,7 @@
 
           <v-divider class="mx-4"></v-divider>
 
-          <v-list-item link class="my-2" to="/about">
-            <v-tooltip right>
-              <template v-slot:activator="{ on, attrs }">
-                <v-list-item-icon v-bind="attrs" v-on="on">
-                  <v-icon>mdi-help-circle-outline</v-icon>
-                </v-list-item-icon>
-              </template>
-              <span>Help</span>
-            </v-tooltip>
-            <v-list-item-content>
-              <v-list-item-title>Help</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-
-          <!-- <v-list-item link v-if="$auth.loggedIn" @click="Logout">
+          <v-list-item link>
             <v-tooltip right>
               <template v-slot:activator="{ on, attrs }">
                 <v-list-item-icon v-bind="attrs" v-on="on">
@@ -87,7 +87,7 @@
             <v-list-item-content>
               <v-list-item-title>Signout</v-list-item-title>
             </v-list-item-content>
-          </v-list-item> -->
+          </v-list-item>
         </v-list>
       </template>
     </v-navigation-drawer>

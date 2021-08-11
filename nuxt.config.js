@@ -11,8 +11,17 @@ export default {
 
   target: "static",
 
+  cli: {
+    badgeMessages: [
+      `Application: ${process.env.npm_package_name.toUpperCase()} v${
+        process.env.npm_package_version
+      }`,
+    ],
+  },
+
   router: {
     base: `/${process.env.npm_package_name}/`,
+    prefetchLinks: false,
   },
 
   head: {
@@ -48,7 +57,7 @@ export default {
 
   buildModules: ["@nuxtjs/vuetify"],
 
-  modules: ["@nuxtjs/pwa", "@nuxtjs/meta"],
+  modules: ["@nuxtjs/pwa", "@nuxtjs/meta", "@nuxtjs/toast"],
 
   pwa: {
     meta: {
@@ -82,6 +91,25 @@ export default {
       start_url: `/${process.env.npm_package_name}/`,
       useWebmanifestExtension: false,
     },
+  },
+
+  toast: {
+    type: "default",
+    theme: "toasted-primary",
+    position: "bottom-right",
+    icon: "alert-circle-outline",
+    duration: 1000,
+    iconPack: "mdi",
+    register: [
+      {
+        name: "errorDefault",
+        message: "Oops... Something went wrong",
+        options: {
+          type: "error",
+          duration: 2000,
+        },
+      },
+    ],
   },
 
   vuetify: {

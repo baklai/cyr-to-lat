@@ -28,6 +28,7 @@
           <v-col cols="12">
             <v-container fluid class="pa-0">
               <div class="text-center">
+                <v-btn depressed color="primary"> Primary </v-btn>
                 <v-btn class="mx-2" fab small @click="show = !show">
                   <v-icon>
                     {{ show ? "mdi-eye" : "mdi-eye-off" }}
@@ -49,9 +50,9 @@
 
       <v-col cols="12" md="4" class="d-none d-md-flex">
         <v-img
-          :src="require(`~/assets/img/bg-app.png`)"
+          contain
+          :src="require(`~/assets/img/bg-app.svg`)"
           class="d-block ml-auto mr-auto"
-          max-width="600px"
         />
       </v-col>
     </v-row>
