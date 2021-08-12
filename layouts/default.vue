@@ -75,17 +75,17 @@
 
           <v-divider class="mx-4"></v-divider>
 
-          <v-list-item link>
+          <v-list-item link @click="exit()">
             <v-tooltip right>
               <template v-slot:activator="{ on, attrs }">
                 <v-list-item-icon v-bind="attrs" v-on="on">
                   <v-icon>mdi-logout-variant</v-icon>
                 </v-list-item-icon>
               </template>
-              <span>Signout</span>
+              <span>Exit</span>
             </v-tooltip>
             <v-list-item-content>
-              <v-list-item-title>Signout</v-list-item-title>
+              <v-list-item-title>Exit</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -133,7 +133,7 @@
 
       <template v-slot:append>
         <div class="pa-2">
-          <v-btn tile block>
+          <v-btn tile block @click="exit()">
             <v-icon left>mdi-exit-to-app</v-icon> Выход
           </v-btn>
         </div>
@@ -190,32 +190,32 @@
 </template>
 
 <script>
-import AppBanner from '@/components/Banner';
+import AppBanner from "@/components/Banner";
 
 export default {
   components: {
-    AppBanner
+    AppBanner,
   },
   data() {
     return {
       drawer: false,
-      icons: ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram']
+      icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
     };
   },
   mounted() {
-    const theme = localStorage.getItem('dark_theme');
+    const theme = localStorage.getItem("dark_theme");
     if (theme) {
-      if (theme === 'true') {
+      if (theme === "true") {
         this.$vuetify.theme.dark = true;
       } else {
         this.$vuetify.theme.dark = false;
       }
     } else if (
       window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
+      window.matchMedia("(prefers-color-scheme: dark)").matches
     ) {
       this.$vuetify.theme.dark = true;
-      localStorage.setItem('dark_theme', this.$vuetify.theme.dark.toString());
+      localStorage.setItem("dark_theme", this.$vuetify.theme.dark.toString());
     }
   },
   computed: {
@@ -230,21 +230,22 @@ export default {
     },
     author() {
       return this.$store.state.author;
-    }
+    },
   },
   methods: {
-    info: function() {
+    info: function () {
       this.$router.push(`/about`);
     },
 
-    exit: function() {
-      this.$store.commit('appSignout');
+    exit: function () {
+      // this.$store.commit("appSignout");
+      // document.getElementsByTagName("html")[0].remove();
     },
 
-    toggle_dark_mode: function() {
+    toggle_dark_mode: function () {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-      localStorage.setItem('dark_theme', this.$vuetify.theme.dark.toString());
-    }
-  }
+      localStorage.setItem("dark_theme", this.$vuetify.theme.dark.toString());
+    },
+  },
 };
 </script>

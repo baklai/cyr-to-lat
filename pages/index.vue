@@ -5,44 +5,36 @@
         <h1 class="font-weight-light display-1">
           <strong>Converter CyrToLat</strong>
         </h1>
-        <h3 class="font-weight-light mb-3">
-          Данный онлайн сервис разработан специально для перевода строки текста
-          из русской раскладки в английскую.
+        <h3 class="subtitle-2 my-2">
+          Сервис разработан специально для перевода строки текста из русской
+          раскладки в английскую.
         </h3>
         <v-row>
           <v-col cols="12" class="d-flex align-center">
+            <!-- prepend-inner-icon="mdi-lock-outline" -->
             <v-text-field
-              :type="show ? 'text' : 'password'"
-              placeholder="введите текст для перевода"
-              class="my-4 mx-2 input-group--focused centered-input"
-              @click:append="show = !show"
-              v-model="valueInput"
               filled
               rounded
               dense
-            ></v-text-field>
+              placeholder="Введите пароль для перевода"
+              name="password"
+              color="blue darken-1"
+              :type="showeye ? 'text' : 'password'"
+              :append-icon="showeye ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
+              class="my-4 mx-2 input-group--focused"
+              :counter="21"
+              v-model.trim="valueInput"
+              @click:append="showeye = !showeye"
+              v-disabled-icon-focus
+              @keypress.enter="convert()"
+            />
           </v-col>
         </v-row>
 
         <v-row>
           <v-col cols="12">
             <v-container fluid class="pa-0">
-              <div class="text-center">
-                <v-btn depressed color="primary"> Primary </v-btn>
-                <v-btn class="mx-2" fab small @click="show = !show">
-                  <v-icon>
-                    {{ show ? "mdi-eye" : "mdi-eye-off" }}
-                  </v-icon>
-                </v-btn>
-
-                <v-btn class="mx-4" fab @click="convert()">
-                  <v-icon> mdi-cached </v-icon>
-                </v-btn>
-
-                <v-btn class="mx-2" fab small @click="exit()">
-                  <v-icon> mdi-exit-to-app </v-icon>
-                </v-btn>
-              </div>
+              <v-btn depressed color="primary"> Primary </v-btn>
             </v-container>
           </v-col>
         </v-row>
@@ -113,6 +105,7 @@ export default {
   layout: "default",
   data: () => ({
     show: false,
+    showeye: false,
     valueInput: null,
     banner: require("@/assets/img/banner.png"),
     bannerDark: require("@/assets/img/banner-dark.png"),
@@ -243,10 +236,6 @@ export default {
           },
         });
       }
-    },
-
-    exit: function () {
-      this.$store.commit("appSignout");
     },
   },
 };
