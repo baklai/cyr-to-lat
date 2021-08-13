@@ -1,7 +1,7 @@
 <template>
   <v-container fill-height fluid>
     <v-row align="center" justify="center">
-      <v-col cols="12" md="4" class="mx-10">
+      <v-col cols="12">
         <h1 class="font-weight-light display-1">
           <strong>Converter CyrToLat</strong>
         </h1>
@@ -11,22 +11,20 @@
         </h3>
         <v-row>
           <v-col cols="12" class="d-flex align-center">
-            <!-- prepend-inner-icon="mdi-lock-outline" -->
             <v-text-field
               filled
               rounded
-              dense
+              clearable
+              persistent-placeholder
               placeholder="Введите пароль для перевода"
               name="password"
               color="blue darken-1"
               :type="showeye ? 'text' : 'password'"
               :append-icon="showeye ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
-              class="my-4 mx-2 input-group--focused"
-              :counter="21"
               v-model.trim="valueInput"
               @click:append="showeye = !showeye"
-              v-disabled-icon-focus
               @keypress.enter="convert()"
+              @click="showeye = false"
             />
           </v-col>
         </v-row>
@@ -40,7 +38,7 @@
         </v-row>
       </v-col>
 
-      <v-col cols="12" md="4" class="d-none d-md-flex">
+      <v-col cols="12" class="d-none d-md-flex">
         <v-img
           contain
           :src="require(`~/assets/img/bg-app.svg`)"
@@ -49,67 +47,15 @@
       </v-col>
     </v-row>
   </v-container>
-
-  <!-- <v-flex>
-      <v-card max-width="500" class="mx-auto" color="transparent" elevation="0">
-        <v-card-text>
-          <v-container fluid>
-            <v-row>
-              <v-col cols="12">
-                <v-img
-                  max-height="150"
-                  max-width="100%"
-                  :src="$vuetify.theme.dark ? bannerDark : banner"
-                ></v-img>
-                <v-text-field
-                  :type="show ? 'text' : 'password'"
-                  placeholder="введите текст для перевода"
-                  class="my-4 mx-2 input-group--focused centered-input"
-                  @click:append="show = !show"
-                  v-model="valueInput"
-                  filled
-                  rounded
-                  dense
-                ></v-text-field>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col cols="12">
-                <v-container fluid class="pa-0">
-                  <div class="text-center">
-                    <v-btn class="mx-2" fab small @click="show = !show">
-                      <v-icon>
-                        {{ show ? "mdi-eye" : "mdi-eye-off" }}
-                      </v-icon>
-                    </v-btn>
-
-                    <v-btn class="mx-4" fab @click="convert()">
-                      <v-icon> mdi-cached </v-icon>
-                    </v-btn>
-
-                    <v-btn class="mx-2" fab small @click="exit()">
-                      <v-icon> mdi-exit-to-app </v-icon>
-                    </v-btn>
-                  </div>
-                </v-container>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card-text>
-      </v-card>
-    </v-flex> -->
 </template>
 
 <script>
 export default {
-  layout: "default",
   data: () => ({
-    show: false,
-    showeye: false,
+    showeye: true,
     valueInput: null,
-    banner: require("@/assets/img/banner.png"),
-    bannerDark: require("@/assets/img/banner-dark.png"),
   }),
+
   methods: {
     autoKeyboardLang: function (str) {
       const cyr = [
@@ -240,9 +186,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.centered-input input {
-  text-align: center !important;
-}
-</style>
