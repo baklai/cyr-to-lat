@@ -1,7 +1,8 @@
 <template>
   <v-app>
     <!-- <app-banner /> -->
-    <v-navigation-drawer app permanent mini-variant absolute class="pt-4">
+
+    <v-navigation-drawer app permanent mini-variant class="pt-4">
       <v-avatar size="42" class="d-block text-center mx-auto mb-9">
         <img src="@/static/icon.svg" alt="app-logo" />
       </v-avatar>
@@ -92,7 +93,7 @@
       </template>
     </v-navigation-drawer>
 
-    <v-navigation-drawer v-model="drawer" app absolute temporary>
+    <!-- <v-navigation-drawer v-model="drawer" app absolute temporary>
       <v-list>
         <v-list-item two-line class="px-2">
           <v-list-item-avatar tile>
@@ -138,7 +139,7 @@
           </v-btn>
         </div>
       </template>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
 
     <!-- <v-app-bar app clipped-left flat class="mx-auto px-15">
       <v-toolbar-title class="d-inline">
