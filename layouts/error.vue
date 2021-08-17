@@ -6,7 +6,11 @@
         <v-img
           contain
           width="300"
-          :src="error.statusCode === 404 ? '/img/404.svg' : '/img/500.svg'"
+          :src="
+            error.statusCode === 404
+              ? require('~/assets/img/404.svg')
+              : require('~/assets/img/404.svg')
+          "
           class="d-block ml-auto mr-auto"
         />
         <h1 class="text-center">

@@ -2,7 +2,11 @@
   <v-container fill-height fluid>
     <v-row align="center" justify="space-around">
       <v-col cols="10" xl="5" lg="5" md="5" sm="6">
-        <v-img contain src="/img/home.svg" class="d-block ml-auto mr-auto" />
+        <v-img
+          contain
+          :src="require('~/assets/img/home.svg')"
+          class="d-block ml-auto mr-auto"
+        />
       </v-col>
 
       <v-col cols="10" xl="4" lg="4" md="5" sm="10">
