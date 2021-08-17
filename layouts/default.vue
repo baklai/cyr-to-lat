@@ -1,65 +1,73 @@
 <template>
   <v-app>
-    <!-- <app-banner /> -->
-
     <v-navigation-drawer app permanent mini-variant class="pt-4">
-      <v-avatar size="42" class="d-block text-center mx-auto mb-9">
-        <img src="@/static/icon.svg" alt="app-logo" />
-      </v-avatar>
+      <template v-slot:prepend>
+        <v-avatar size="36px" class="d-block text-center mx-auto mb-6">
+          <img src="@/static/icon.svg" alt="app-logo" />
+        </v-avatar>
+      </template>
 
-      <v-list dense flat class="mt-2">
-        <v-list-item link class="mb-2" to="/">
-          <v-tooltip right>
-            <template v-slot:activator="{ on, attrs }">
-              <v-list-item-icon v-bind="attrs" v-on="on">
-                <v-icon>mdi-home-outline</v-icon>
-              </v-list-item-icon>
-            </template>
-            <span>Home</span>
-          </v-tooltip>
+      <v-list flat dense height="70vh">
+        <v-list-item class="px-0 align-center justify-center fill-height">
           <v-list-item-content>
-            <v-list-item-title>Home</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item link class="my-2" to="/about">
-          <v-tooltip right>
-            <template v-slot:activator="{ on, attrs }">
-              <v-list-item-icon v-bind="attrs" v-on="on">
-                <v-icon>mdi-help-circle-outline</v-icon>
-              </v-list-item-icon>
-            </template>
-            <span>Help</span>
-          </v-tooltip>
-          <v-list-item-content>
-            <v-list-item-title>Help</v-list-item-title>
+            <v-list-item link to="/" class="mb-2">
+              <v-tooltip right>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-list-item-icon v-bind="attrs" v-on="on">
+                    <v-icon>mdi-home-outline</v-icon>
+                  </v-list-item-icon>
+                </template>
+                <span>Home</span>
+              </v-tooltip>
+              <v-list-item-content>
+                <v-list-item-title>Home</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item link class="my-2" to="/about">
+              <v-tooltip right>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-list-item-icon v-bind="attrs" v-on="on">
+                    <v-icon>mdi-information-outline</v-icon>
+                  </v-list-item-icon>
+                </template>
+                <span>About</span>
+              </v-tooltip>
+              <v-list-item-content>
+                <v-list-item-title>About</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item link class="my-2" to="/help">
+              <v-tooltip right>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-list-item-icon v-bind="attrs" v-on="on">
+                    <v-icon>mdi-help-circle-outline</v-icon>
+                  </v-list-item-icon>
+                </template>
+                <span>Help</span>
+              </v-tooltip>
+              <v-list-item-content>
+                <v-list-item-title>Help</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item link class="my-2" to="/contacts">
+              <v-tooltip right>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-list-item-icon v-bind="attrs" v-on="on">
+                    <v-icon>mdi-account-circle-outline</v-icon>
+                  </v-list-item-icon>
+                </template>
+                <span>Contacts</span>
+              </v-tooltip>
+              <v-list-item-content>
+                <v-list-item-title>Contacts</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
           </v-list-item-content>
         </v-list-item>
       </v-list>
 
       <template v-slot:append>
-        <v-list dense flat class="mt-2">
-          <!-- <v-list-item
-            link
-            class="mb-2 d-none d-lg-block"
-            target="_blank"
-            v-for="item in socialLinks"
-            :key="item.title"
-            :href="item.href"
-          >
-            <v-tooltip right>
-              <template v-slot:activator="{ on, attrs }">
-                <v-list-item-icon v-bind="attrs" v-on="on">
-                  <v-icon color="#252526">{{ item.icon }}</v-icon>
-                </v-list-item-icon>
-              </template>
-              <span>{{ item.title }}</span>
-            </v-tooltip>
-            <v-list-item-content>
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item> -->
-
+        <v-list dense flat>
           <v-list-item link class="my-2" @click.prevent="toggle_dark_mode">
             <v-tooltip right>
               <template v-slot:activator="{ on, attrs }">
@@ -73,9 +81,7 @@
               <v-list-item-title>Theme light/dark</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-
           <v-divider class="mx-4"></v-divider>
-
           <v-list-item link @click="exit()">
             <v-tooltip right>
               <template v-slot:activator="{ on, attrs }">
@@ -191,32 +197,27 @@
 </template>
 
 <script>
-import AppBanner from "@/components/Banner";
-
 export default {
-  components: {
-    AppBanner,
-  },
   data() {
     return {
       drawer: false,
-      icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
+      icons: ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram']
     };
   },
   mounted() {
-    const theme = localStorage.getItem("dark_theme");
+    const theme = localStorage.getItem('dark_theme');
     if (theme) {
-      if (theme === "true") {
+      if (theme === 'true') {
         this.$vuetify.theme.dark = true;
       } else {
         this.$vuetify.theme.dark = false;
       }
     } else if (
       window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
+      window.matchMedia('(prefers-color-scheme: dark)').matches
     ) {
       this.$vuetify.theme.dark = true;
-      localStorage.setItem("dark_theme", this.$vuetify.theme.dark.toString());
+      localStorage.setItem('dark_theme', this.$vuetify.theme.dark.toString());
     }
   },
   computed: {
@@ -231,7 +232,7 @@ export default {
     },
     author() {
       return this.$store.state.author;
-    },
+    }
   },
   methods: {
     info: function () {
@@ -245,8 +246,8 @@ export default {
 
     toggle_dark_mode: function () {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-      localStorage.setItem("dark_theme", this.$vuetify.theme.dark.toString());
-    },
-  },
+      localStorage.setItem('theme.dark', this.$vuetify.theme.dark.toString());
+    }
+  }
 };
 </script>

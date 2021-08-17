@@ -44,13 +44,13 @@ export default {
     ],
   },
 
-  loading: { color: "#000" },
+  loading: { color: "#2196f3" },
 
-  css: ["~/assets/variables.css"],
+  css: ["@mdi/font/css/materialdesignicons.min.css", "~/assets/variables.css"],
 
   plugins: [
+    { src: "~/plugins/themeMode", mode: "client" },
     { src: "~/plugins/clipboard.js", mode: "client" },
-    { src: "~/plugins/toasted.js", mode: "client" },
   ],
 
   components: true,

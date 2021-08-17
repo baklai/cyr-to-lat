@@ -20,6 +20,7 @@
     "vue-toasted": "^1.1.28"
   },
   "devDependencies": {
+    "@mdi/font": "^5.9.55",
     "@nuxtjs/pwa": "^3.3.4",
     "@nuxtjs/vuetify": "^1.11.2",
     "push-dir": "^0.4.1"

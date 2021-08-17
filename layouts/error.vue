@@ -1,62 +1,44 @@
 <template>
-  <v-layout align-center>
-    <v-flex>
-      <v-card
-        dark
-        max-width="500"
-        class="mx-auto"
-        color="transparent"
-        elevation="0"
-      >
-        <v-card-text>
-          <v-container fluid>
-            <v-row>
-              <v-col cols="12" class="text-center">
-                <h1 v-if="error.statusCode === 404">
-                  {{ pageNotFound }}
-                </h1>
-                <h1 v-else>
-                  {{ otherError }}
-                </h1>
-                <NuxtLink to="/">
-                  {{ appName }}
-                </NuxtLink>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card-text>
-      </v-card>
-    </v-flex>
-  </v-layout>
+  <v-container fill-height fluid>
+    <AppSidebar />
+    <v-row align="center" justify="center">
+      <v-col cols="12" align="center">
+        <v-img
+          contain
+          width="300"
+          :src="error.statusCode === 404 ? '/img/404.svg' : '/img/500.svg'"
+          class="d-block ml-auto mr-auto"
+        />
+        <h1 class="text-center">
+          {{ error.statusCode === 404 ? pageNotFound : otherError }}
+        </h1>
+        <v-btn rounded outlined class="mt-5" to="/"> TAKE ME BACK HOME </v-btn>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
 export default {
-  layout: "default",
   props: {
     error: {
       type: Object,
-      default: null,
-    },
-  },
-  data() {
-    return {
-      pageNotFound: "404 Not Found",
-      otherError: "An error occurred",
-    };
+      default: null
+    }
   },
   head() {
     const title =
       this.error.statusCode === 404 ? this.pageNotFound : this.otherError;
     return {
-      title,
+      title
     };
   },
-  computed: {
-    appName() {
-      return this.$store.state.appName;
-    },
-  },
+  data() {
+    return {
+      pageNotFound: 'Oops! That page can’t be found.',
+      otherError: 'Oops! Internal Server Error.'
+    };
+  }
 };
 </script>
 

@@ -1,10 +1,19 @@
 <template>
-  <v-layout align-center>
-    <v-flex>
-      <v-card max-width="500" class="mx-auto" color="transparent" elevation="0">
-        <v-card-title> О сервисе </v-card-title>
-        <v-card-subtitle> {{ appName }} </v-card-subtitle>
-        <v-card-text>
+  <v-container fill-height fluid>
+    <v-row align="center" justify="space-around">
+      <v-col cols="10" xl="5" lg="5" md="5" sm="6">
+        <v-img
+          contain
+          width="600"
+          src="/img/about.svg"
+          class="d-block ml-auto mr-auto"
+        />
+      </v-col>
+      <v-col cols="10" xl="4" lg="4" md="5" sm="10">
+        <h1 class="font-weight-light display-1">
+          <strong>Cyr to Lat converter</strong>
+        </h1>
+        <h3 class="subtitle-2 my-2">
           Данный онлайн сервис разработан специально для перевода строки текста
           из русской раскладки в английскую. Он ориентирован на пользователей,
           которые используют пароли на русском языке (зашифрованные в русской
@@ -17,28 +26,28 @@
           этой проблемы используйте наш сервис. Сервис меняет раскладку в
           обратную сторону, конвертируя русские слова в набор латинских символов
           (включая специальные знаки: запятые, слэши и пр.).
-        </v-card-text>
-        <v-card-actions>
-          <v-btn text color="indigo" @click="home()"> Назад </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-  </v-layout>
+        </h3>
+        <v-row>
+          <v-col cols="12">
+            <v-btn rounded outlined class="mt-5" to="/">
+              TAKE ME BACK HOME
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
 export default {
-  layout: "default",
-  data: () => ({}),
+  data() {
+    return {};
+  },
   computed: {
     appName() {
       return this.$store.state.appName;
-    },
-  },
-  methods: {
-    home: function() {
-      this.$router.push(`/`);
-    },
-  },
+    }
+  }
 };
 </script>
