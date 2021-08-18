@@ -11,11 +11,10 @@
 
       <v-col cols="10" xl="4" lg="4" md="5" sm="10">
         <h1 class="font-weight-light display-1">
-          <strong> Converter Cyr to Lat </strong>
+          <strong> Password converter </strong>
         </h1>
         <h3 class="subtitle-2 my-2">
-          Сервис разработан специально для перевода строки текста из русской
-          раскладки в английскую.
+          Сервис для перевода строки текста из русской раскладки в английскую.
         </h3>
 
         <v-text-field

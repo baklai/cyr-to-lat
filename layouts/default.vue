@@ -106,6 +106,11 @@
     </v-navigation-drawer>
 
     <v-app-bar app bottom fixed flat v-if="!drawer">
+      <v-toolbar-title>
+        <v-avatar size="36px" class="d-block text-center mx-auto">
+          <img :src="require('~/static/icon.svg')" alt="app-logo" />
+        </v-avatar>
+      </v-toolbar-title>
       <v-spacer />
 
       <v-tooltip top>

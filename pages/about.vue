@@ -11,7 +11,7 @@
       </v-col>
       <v-col cols="10" xl="4" lg="4" md="5" sm="10">
         <h1 class="font-weight-light display-1">
-          <strong>Cyr to Lat converter</strong>
+          <strong>About</strong>
         </h1>
         <h3 class="subtitle-2 my-2">
           Данный онлайн сервис разработан специально для перевода строки текста
