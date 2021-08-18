@@ -1,6 +1,12 @@
 <template>
   <v-app>
-    <v-navigation-drawer app permanent mini-variant class="pt-4">
+    <v-navigation-drawer
+      app
+      mini-variant
+      touchless
+      v-model="drawer"
+      class="pt-4"
+    >
       <template v-slot:prepend>
         <v-avatar size="36px" class="d-block text-center mx-auto mb-6">
           <img :src="require('~/static/icon.svg')" alt="app-logo" />
@@ -99,69 +105,47 @@
       </template>
     </v-navigation-drawer>
 
-    <!-- <v-navigation-drawer v-model="drawer" app absolute temporary>
-      <v-list>
-        <v-list-item two-line class="px-2">
-          <v-list-item-avatar tile>
-            <img src="@/static/icon.png" />
-          </v-list-item-avatar>
-          <v-list-item-content>
-            <v-list-item-title>Converter CyrToLat</v-list-item-title>
-            <v-list-item-subtitle>from {{ author }}</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-      <v-divider></v-divider>
-      <v-list nav dense>
-        <v-list-item
-          v-for="item in links"
-          :key="item.title"
-          :href="item.href"
-          target="_blank"
-          link
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-      <v-divider></v-divider>
-      <v-list nav dense>
-        <v-list-item link @click="info()">
-          <v-list-item-icon>
-            <v-icon>mdi-information-outline</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>О сервисе</v-list-item-title>
-        </v-list-item>
-      </v-list>
+    <v-app-bar app bottom fixed flat v-if="!drawer">
+      <v-spacer />
 
-      <template v-slot:append>
-        <div class="pa-2">
-          <v-btn tile block @click="exit()">
-            <v-icon left>mdi-exit-to-app</v-icon> Выход
+      <v-tooltip top>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn icon v-bind="attrs" v-on="on" to="/">
+            <v-icon>mdi-home-outline</v-icon>
           </v-btn>
-        </div>
-      </template>
-    </v-navigation-drawer> -->
+        </template>
+        <span>Home</span>
+      </v-tooltip>
 
-    <!-- <v-app-bar app clipped-left flat class="mx-auto px-15">
-      <v-toolbar-title class="d-inline">
-        <v-avatar left tile size="32">
-          <img src="@/static/icon.svg" alt="logo" />
-        </v-avatar>
-        <p class="d-inline">Cyr</p>
-        <p class="d-inline">To</p>
-        <p class="d-inline">Lat</p>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn icon @click="toggle_dark_mode">
-        <v-icon>mdi-theme-light-dark</v-icon>
-      </v-btn>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-    </v-app-bar> -->
+      <v-tooltip top>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn icon v-bind="attrs" v-on="on" to="/about">
+            <v-icon>mdi-information-outline</v-icon>
+          </v-btn>
+        </template>
+        <span>About</span>
+      </v-tooltip>
+
+      <v-tooltip top>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn icon v-bind="attrs" v-on="on" to="/help">
+            <v-icon>mdi-help-circle-outline</v-icon>
+          </v-btn>
+        </template>
+        <span>Help</span>
+      </v-tooltip>
+
+      <v-tooltip top>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn icon v-bind="attrs" v-on="on" to="/contacts">
+            <v-icon>mdi-account-circle-outline</v-icon>
+          </v-btn>
+        </template>
+        <span>Contacts</span>
+      </v-tooltip>
+
+      <v-spacer />
+    </v-app-bar>
 
     <v-main>
       <nuxt />
@@ -200,25 +184,9 @@
 export default {
   data() {
     return {
-      drawer: false,
+      drawer: null,
       icons: ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram']
     };
-  },
-  mounted() {
-    const theme = localStorage.getItem('dark_theme');
-    if (theme) {
-      if (theme === 'true') {
-        this.$vuetify.theme.dark = true;
-      } else {
-        this.$vuetify.theme.dark = false;
-      }
-    } else if (
-      window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
-    ) {
-      this.$vuetify.theme.dark = true;
-      localStorage.setItem('dark_theme', this.$vuetify.theme.dark.toString());
-    }
   },
   computed: {
     appName() {
@@ -235,10 +203,6 @@ export default {
     }
   },
   methods: {
-    info: function () {
-      this.$router.push(`/about`);
-    },
-
     exit: function () {
       // this.$store.commit("appSignout");
       // document.getElementsByTagName("html")[0].remove();
