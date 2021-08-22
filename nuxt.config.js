@@ -1,45 +1,38 @@
 import colors from 'vuetify/es5/util/colors';
 
-const HOST = 'https://baklai.github.io';
-
-/// https://isometric.online/
+import pkg from './package.json';
 
 export default {
   telemetry: false,
 
   ssr: false,
-
   target: 'static',
 
   cli: {
-    badgeMessages: [
-      `Application: ${process.env.npm_package_name.toUpperCase()} v${
-        process.env.npm_package_version
-      }`
-    ]
+    badgeMessages: [`Application: ${pkg.name.toUpperCase()} v${pkg.version}`]
   },
 
   router: {
-    base: `/${process.env.npm_package_name}/`,
+    base: `/${pkg.name}/`,
     prefetchLinks: false
   },
 
   head: {
-    titleTemplate: `%s • ${process.env.npm_package_author_name}`,
-    title: 'Cyr To Lat',
+    titleTemplate: `%s • ${pkg.config.title_description}`,
+    title: pkg.config.title,
     meta: [
       { charset: 'utf-8' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: pkg.description || pkg.config.title_description
       }
     ],
     link: [
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: `/${process.env.npm_package_name}/favicon.ico`
+        href: `/${pkg.name}/favicon.ico`
       }
     ]
   },
@@ -53,8 +46,6 @@ export default {
     { src: '~/plugins/clipboard.js', mode: 'client' }
   ],
 
-  components: true,
-
   buildModules: ['@nuxtjs/vuetify'],
 
   modules: ['@nuxtjs/pwa', '@nuxtjs/meta', '@nuxtjs/toast'],
@@ -67,28 +58,28 @@ export default {
       mobileAppIOS: true,
       appleStatusBarStyle: 'black',
       favicon: true,
-      name: 'Converter Cyrillic To Latin',
-      author: process.env.npm_package_author_name,
-      description: process.env.npm_package_description,
+      name: pkg.config.title_description,
+      author: pkg.author.name,
+      description: pkg.description,
       theme_color: '#fff',
       lang: 'ru',
       ogType: 'website',
-      ogHost: HOST,
+      ogHost: pkg.config.host,
       ogImage: {
-        path: `/${process.env.npm_package_name}/icon.png`,
+        path: `/${pkg.name}/icon.png`,
         width: '50',
         height: '50',
         type: 'image/png'
       }
     },
     manifest: {
-      name: 'Converter Cyrillic To Latin',
-      short_name: 'Cyr To Lat',
-      description: process.env.npm_package_description,
+      name: pkg.config.title_description,
+      short_name: pkg.config.title,
+      description: pkg.description || pkg.config.title_description,
       lang: 'ru',
       display: 'standalone',
       background_color: '#fff',
-      start_url: `/${process.env.npm_package_name}/`,
+      start_url: `/${pkg.name}/`,
       useWebmanifestExtension: false
     }
   },
@@ -136,11 +127,6 @@ export default {
         light: {}
       }
     }
-  },
-
-  workbox: {
-    cacheAssets: false,
-    offline: false
   },
 
   build: {
