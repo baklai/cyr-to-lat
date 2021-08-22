@@ -60,7 +60,6 @@ export default {
   modules: ['@nuxtjs/pwa', '@nuxtjs/meta', '@nuxtjs/toast'],
 
   pwa: {
-    icon: false,
     meta: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
