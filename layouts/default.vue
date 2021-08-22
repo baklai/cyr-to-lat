@@ -8,8 +8,8 @@
       class="pt-4"
     >
       <template v-slot:prepend>
-        <v-avatar size="36px" class="d-block text-center mx-auto mb-6">
-          <img :src="require('~/static/icon.svg')" alt="app-logo" />
+        <v-avatar size="32px" class="d-block text-center mx-auto mb-6">
+          <img :src="require('~/static/icon.png')" alt="app-logo" />
         </v-avatar>
       </template>
 
@@ -107,8 +107,8 @@
 
     <v-app-bar app bottom fixed flat v-if="!drawer">
       <v-toolbar-title>
-        <v-avatar size="36px" class="d-block text-center mx-auto">
-          <img :src="require('~/static/icon.svg')" alt="app-logo" />
+        <v-avatar size="32px" class="d-block text-center mx-auto">
+          <img :src="require('~/static/icon.png')" alt="app-logo" />
         </v-avatar>
       </v-toolbar-title>
       <v-spacer />
@@ -208,12 +208,12 @@ export default {
     }
   },
   methods: {
-    exit: function () {
+    exit: function() {
       // this.$store.commit("appSignout");
       // document.getElementsByTagName("html")[0].remove();
     },
 
-    toggle_dark_mode: function () {
+    toggle_dark_mode: function() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
       localStorage.setItem('theme.dark', this.$vuetify.theme.dark.toString());
     }
