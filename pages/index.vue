@@ -36,7 +36,7 @@
         <v-row>
           <v-col cols="12">
             <v-btn rounded outlined @click="convert()">
-              Convert password
+              Convert
             </v-btn>
           </v-col>
         </v-row>

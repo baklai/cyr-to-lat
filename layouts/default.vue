@@ -8,7 +8,7 @@
       class="pt-4"
     >
       <template v-slot:prepend>
-        <v-avatar size="32px" class="d-block text-center mx-auto mb-6">
+        <v-avatar size="42px" class="d-block text-center mx-auto mb-6">
           <img :src="require('~/static/icon.png')" alt="app-logo" />
         </v-avatar>
       </template>
