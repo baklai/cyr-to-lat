@@ -35,7 +35,9 @@
         />
         <v-row>
           <v-col cols="12">
-            <v-btn color="primary" @click="convert()"> Convert password </v-btn>
+            <v-btn rounded outlined @click="convert()">
+              Convert password
+            </v-btn>
           </v-col>
         </v-row>
       </v-col>
@@ -53,7 +55,7 @@ export default {
   },
 
   methods: {
-    autoKeyboardLang: function (str) {
+    autoKeyboardLang: function(str) {
       const cyr = [
         'й',
         'ц',
@@ -130,18 +132,18 @@ export default {
       ];
       for (let i = 0; i < cyr.length; i++) {
         const reg = new RegExp(cyr[i], 'mig');
-        str = str.replace(reg, function (a) {
+        str = str.replace(reg, function(a) {
           return a == a.toLowerCase() ? en[i] : en[i].toUpperCase();
         });
       }
       return str;
     },
 
-    convert: function () {
+    convert: function() {
       if (this.valueInput) {
         let doubles = this.valueInput
           .split('')
-          .map((letter) => {
+          .map(letter => {
             return this.autoKeyboardLang(letter);
           })
           .join('');
