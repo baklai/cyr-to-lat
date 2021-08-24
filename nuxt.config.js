@@ -18,8 +18,8 @@ export default {
   },
 
   head: {
-    titleTemplate: `%s • ${pkg.config.title_description}`,
-    title: pkg.config.title,
+    titleTemplate: `${pkg.config.title} • %s`,
+    title: pkg.config.title_description,
     meta: [
       { charset: 'utf-8' },
       {
@@ -48,7 +48,7 @@ export default {
 
   buildModules: ['@nuxtjs/vuetify'],
 
-  modules: ['@nuxtjs/pwa', '@nuxtjs/meta', '@nuxtjs/toast'],
+  modules: ['@nuxtjs/pwa', '@nuxtjs/meta', '@nuxtjs/i18n', '@nuxtjs/toast'],
 
   pwa: {
     meta: {
@@ -81,6 +81,41 @@ export default {
       background_color: '#fff',
       start_url: `/${pkg.name}/`,
       useWebmanifestExtension: false
+    }
+  },
+
+  i18n: {
+    lazy: true,
+    langDir: 'lang/',
+    strategy: 'no_prefix',
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+        file: 'en-US.js',
+        name: 'English'
+      },
+      {
+        code: 'ua',
+        iso: 'ua-UA',
+        file: 'ua-UA.js',
+        name: 'Ukraine'
+      },
+      {
+        code: 'ru',
+        iso: 'ru-RU',
+        file: 'ru-RU.js',
+        name: 'Russia'
+      }
+    ],
+    defaultLocale: 'en',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'app.lang',
+      onlyOnRoot: true
+    },
+    vueI18n: {
+      fallbackLocale: 'en'
     }
   },
 

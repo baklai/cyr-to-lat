@@ -11,10 +11,10 @@
 
       <v-col cols="10" xl="4" lg="4" md="5" sm="10">
         <h1 class="font-weight-light display-1">
-          <strong> Password converter </strong>
+          <strong> {{ $t('homepage.input_title') }} </strong>
         </h1>
         <h3 class="subtitle-2 my-2">
-          Сервис для перевода строки текста из русской раскладки в английскую.
+          {{ $t('homepage.input_description') }}
         </h3>
 
         <v-text-field
@@ -22,7 +22,7 @@
           rounded
           clearable
           persistent-placeholder
-          placeholder="Введите пароль для перевода"
+          :placeholder="$t('homepage.input_placeholder')"
           name="password"
           color="blue darken-1"
           :type="showeye ? 'text' : 'password'"
@@ -36,7 +36,7 @@
         <v-row>
           <v-col cols="12">
             <v-btn rounded outlined @click="convert()">
-              Convert
+              {{ $t('homepage.input_btn') }}
             </v-btn>
           </v-col>
         </v-row>
@@ -47,6 +47,12 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: this.$i18n.t('homepage.title')
+    };
+  },
+
   data() {
     return {
       showeye: true,

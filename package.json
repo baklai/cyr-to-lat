@@ -2,15 +2,15 @@
   "name": "cyr-to-lat",
   "version": "1.0.0",
   "description": "Service for converting passwords from Russian to English. It is aimed at users who use passwords in Russian (encrypted in Russian layout).",
-  "author": { 
-    "name" : "Dmitrii Baklai", 
-    "email" : "d.n.baklai@gmail.com", 
-    "url" : "https://baklai.github.io"
+  "author": {
+    "name": "Dmitrii Baklai",
+    "email": "d.n.baklai@gmail.com",
+    "url": "https://baklai.github.io"
   },
-  "config" : { 
-    "host" : "https://baklai.github.io",
+  "config": {
+    "host": "https://baklai.github.io",
     "title": "Cyr To Lat",
-    "title_description": "Password converter Cyrillic to Latin" 
+    "title_description": "Password converter Cyrillic to Latin"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,7 @@
     "node.js",
     "nuxt",
     "static",
-    "pwa"    
+    "pwa"
   ],
   "license": "MIT",
   "scripts": {
@@ -35,6 +35,7 @@
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
+    "@nuxtjs/i18n": "^7.0.2",
     "@nuxtjs/meta": "^3.0.0-beta.16",
     "@nuxtjs/toast": "^3.3.1",
     "core-js": "^3.8.2",
@@ -49,5 +50,3 @@
     "push-dir": "^0.4.1"
   }
 }
-
- 

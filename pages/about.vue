@@ -41,6 +41,11 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: this.$i18n.t('about.title')
+    };
+  },
   data() {
     return {};
   },

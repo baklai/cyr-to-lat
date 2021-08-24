@@ -74,6 +74,33 @@
 
       <template v-slot:append>
         <v-list dense flat>
+          <v-menu top offset-y open-on-hover>
+            <template v-slot:activator="{ on, attrs }">
+              <v-list-item link class="my-2" v-bind="attrs" v-on="on">
+                <v-tooltip right>
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-list-item-icon v-bind="attrs" v-on="on">
+                      <v-icon>mdi-translate</v-icon>
+                    </v-list-item-icon>
+                  </template>
+                  <span>Lang</span>
+                </v-tooltip>
+                <v-list-item-content>
+                  <v-list-item-title>Lang</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </template>
+            <v-list>
+              <v-list-item
+                v-for="locale in showLocales"
+                :key="locale.code"
+                @click.prevent.stop="$i18n.setLocale(locale.code)"
+              >
+                <v-list-item-title>{{ locale.name }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+
           <v-list-item link class="my-2" @click.prevent="toggle_dark_mode">
             <v-tooltip right>
               <template v-slot:activator="{ on, attrs }">
@@ -87,6 +114,7 @@
               <v-list-item-title>Theme light/dark</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
+
           <v-divider class="mx-4"></v-divider>
           <v-list-item link @click="exit()">
             <v-tooltip right>
@@ -153,6 +181,8 @@
     </v-app-bar>
 
     <v-main>
+      <!-- {{ $t('home') }} -->
+
       <nuxt />
     </v-main>
 
@@ -194,6 +224,11 @@ export default {
     };
   },
   computed: {
+    showLocales() {
+      return this.$i18n.locales.filter(
+        locale => locale.code !== this.$i18n.locale
+      );
+    },
     appName() {
       return this.$store.state.appName;
     },
