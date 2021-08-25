@@ -14,7 +14,7 @@ export default {
 
   router: {
     base: `/${pkg.name}/`,
-    prefetchLinks: false
+    prefetchLinks: true
   },
 
   head: {
