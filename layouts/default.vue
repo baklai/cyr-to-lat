@@ -13,64 +13,64 @@
         </v-avatar>
       </template>
 
-      <v-list flat dense height="70vh">
-        <v-list-item class="px-0 align-center justify-center fill-height">
-          <v-list-item-content>
-            <v-list-item link to="/" class="mb-2">
-              <v-tooltip right>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-list-item-icon v-bind="attrs" v-on="on">
-                    <v-icon>mdi-home-outline</v-icon>
-                  </v-list-item-icon>
-                </template>
-                <span>Home</span>
-              </v-tooltip>
-              <v-list-item-content>
-                <v-list-item-title>Home</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item link class="my-2" to="/about">
-              <v-tooltip right>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-list-item-icon v-bind="attrs" v-on="on">
-                    <v-icon>mdi-information-outline</v-icon>
-                  </v-list-item-icon>
-                </template>
-                <span>About</span>
-              </v-tooltip>
-              <v-list-item-content>
-                <v-list-item-title>About</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item link class="my-2" to="/help">
-              <v-tooltip right>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-list-item-icon v-bind="attrs" v-on="on">
-                    <v-icon>mdi-help-circle-outline</v-icon>
-                  </v-list-item-icon>
-                </template>
-                <span>Help</span>
-              </v-tooltip>
-              <v-list-item-content>
-                <v-list-item-title>Help</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item link class="my-2" to="/contacts">
-              <v-tooltip right>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-list-item-icon v-bind="attrs" v-on="on">
-                    <v-icon>mdi-account-circle-outline</v-icon>
-                  </v-list-item-icon>
-                </template>
-                <span>Contacts</span>
-              </v-tooltip>
-              <v-list-item-content>
-                <v-list-item-title>Contacts</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+      <v-layout column fill-height>
+        <v-spacer />
+        <v-list flat>
+          <v-list-item link to="/" class="mb-2">
+            <v-tooltip right>
+              <template v-slot:activator="{ on, attrs }">
+                <v-list-item-icon v-bind="attrs" v-on="on">
+                  <v-icon>mdi-home-outline</v-icon>
+                </v-list-item-icon>
+              </template>
+              <span>Home</span>
+            </v-tooltip>
+            <v-list-item-content>
+              <v-list-item-title>Home</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item link class="my-2" to="/about">
+            <v-tooltip right>
+              <template v-slot:activator="{ on, attrs }">
+                <v-list-item-icon v-bind="attrs" v-on="on">
+                  <v-icon>mdi-information-outline</v-icon>
+                </v-list-item-icon>
+              </template>
+              <span>About</span>
+            </v-tooltip>
+            <v-list-item-content>
+              <v-list-item-title>About</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item link class="my-2" to="/help">
+            <v-tooltip right>
+              <template v-slot:activator="{ on, attrs }">
+                <v-list-item-icon v-bind="attrs" v-on="on">
+                  <v-icon>mdi-help-circle-outline</v-icon>
+                </v-list-item-icon>
+              </template>
+              <span>Help</span>
+            </v-tooltip>
+            <v-list-item-content>
+              <v-list-item-title>Help</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item link class="my-2" to="/contacts">
+            <v-tooltip right>
+              <template v-slot:activator="{ on, attrs }">
+                <v-list-item-icon v-bind="attrs" v-on="on">
+                  <v-icon>mdi-account-circle-outline</v-icon>
+                </v-list-item-icon>
+              </template>
+              <span>Contacts</span>
+            </v-tooltip>
+            <v-list-item-content>
+              <v-list-item-title>Contacts</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+        <v-spacer />
+      </v-layout>
 
       <template v-slot:append>
         <v-list dense flat>
@@ -226,7 +226,7 @@ export default {
   computed: {
     showLocales() {
       return this.$i18n.locales.filter(
-        locale => locale.code !== this.$i18n.locale
+        (locale) => locale.code !== this.$i18n.locale
       );
     },
     appName() {
@@ -243,12 +243,12 @@ export default {
     }
   },
   methods: {
-    exit: function() {
+    exit: function () {
       // this.$store.commit("appSignout");
       // document.getElementsByTagName("html")[0].remove();
     },
 
-    toggle_dark_mode: function() {
+    toggle_dark_mode: function () {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
       localStorage.setItem('theme.dark', this.$vuetify.theme.dark.toString());
     }
