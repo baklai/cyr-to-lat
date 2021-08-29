@@ -39,7 +39,7 @@ export default {
 
   loading: { color: '#2196f3' },
 
-  css: ['@mdi/font/css/materialdesignicons.min.css', '~/assets/variables.css'],
+  css: ['~/assets/variables.css'],
 
   plugins: [
     { src: '~/plugins/themeMode', mode: 'client' },
@@ -111,7 +111,7 @@ export default {
     defaultLocale: 'en',
     detectBrowserLanguage: {
       useCookie: true,
-      cookieKey: 'app.lang',
+      cookieKey: 'lang.code',
       onlyOnRoot: true
     },
     vueI18n: {

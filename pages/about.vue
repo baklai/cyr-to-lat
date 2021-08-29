@@ -48,11 +48,6 @@ export default {
   },
   data() {
     return {};
-  },
-  computed: {
-    appName() {
-      return this.$store.state.appName;
-    }
   }
 };
 </script>

@@ -10,7 +10,12 @@
   "config": {
     "host": "https://baklai.github.io",
     "title": "Cyr To Lat",
-    "title_description": "Password converter Cyrillic to Latin"
+    "title_description": "Password converter Cyrillic to Latin",
+    "social": {
+      "github": "https://github.com/baklai",
+      "facebook": "https://www.facebook.com/dmitrii.baklai/",
+      "linkedin": "https://www.linkedin.com/in/dmitrii-baklai-1370a3170/"
+    }
   },
   "repository": {
     "type": "git",
@@ -24,8 +29,8 @@
     "converter",
     "password",
     "node.js",
-    "nuxt",
     "static",
+    "nuxt",
     "pwa"
   ],
   "license": "MIT",
@@ -40,11 +45,9 @@
     "@nuxtjs/toast": "^3.3.1",
     "core-js": "^3.8.2",
     "nuxt": "^2.14.12",
-    "v-clipboard": "^2.2.3",
-    "vue-toasted": "^1.1.28"
+    "v-clipboard": "^2.2.3"
   },
   "devDependencies": {
-    "@mdi/font": "^5.9.55",
     "@nuxtjs/pwa": "^3.3.4",
     "@nuxtjs/vuetify": "^1.11.2",
     "push-dir": "^0.4.1"
