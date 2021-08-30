@@ -27,7 +27,8 @@
           color="blue darken-1"
           :type="showeye ? 'text' : 'password'"
           :append-icon="showeye ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
-          v-model.trim="valueInput"
+          :rules="cyrRules"
+          v-model.trim="cyrInput"
           @click:append="showeye = !showeye"
           @keypress.enter="convert()"
           @click="showeye = false"
@@ -38,6 +39,8 @@
             <v-btn rounded outlined @click="convert()">
               {{ $t('homepage.input_btn') }}
             </v-btn>
+
+            <v-btn @click="$window.close()">CLOSE</v-btn>
           </v-col>
         </v-row>
       </v-col>
@@ -56,8 +59,19 @@ export default {
   data() {
     return {
       showeye: true,
-      valueInput: null
+      cyrInput: null,
+
+      cyrRules: [
+        v => !!v || 'Password is required',
+        v => this.cyrstr.test(v) || 'Examples: а-яА-ЯёЁ0-9'
+      ]
     };
+  },
+
+  computed: {
+    cyrstr() {
+      return this.$store.state.regex.cyrstr;
+    }
   },
 
   methods: {
@@ -146,8 +160,8 @@ export default {
     },
 
     convert: function() {
-      if (this.valueInput) {
-        let doubles = this.valueInput
+      if (this.cyrInput) {
+        let doubles = this.cyrInput
           .split('')
           .map(letter => {
             return this.autoKeyboardLang(letter);
@@ -156,35 +170,15 @@ export default {
 
         try {
           this.$clipboard(doubles);
-          this.valueInput = null;
-          this.$toasted.show('Текст скопирован в буфер обмена', {
-            position: 'top-center',
-            icon: 'information',
-            type: 'success',
-            duration: 3000,
-            action: {
-              icon: 'close',
-              onClick: (e, toastObject) => {
-                toastObject.goAway(0);
-              }
-            }
-          });
+          this.cyrInput = null;
+
+          this.$toast.success(`Текст скопирован в буфер обмена!`);
         } catch (err) {
+          this.$toast.error('Could not copy text!');
           console.error('Could not copy text: ', err);
         }
       } else {
-        this.$toasted.show('Введите текст для перевода!', {
-          position: 'top-center',
-          icon: 'information',
-          type: 'error',
-          duration: 3000,
-          action: {
-            icon: 'close',
-            onClick: (e, toastObject) => {
-              toastObject.goAway(0);
-            }
-          }
-        });
+        this.$toast.error('Введите текст для перевода!');
       }
     }
   }

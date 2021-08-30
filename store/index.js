@@ -42,6 +42,9 @@ export const state = () => ({
 export const actions = {};
 
 export const mutations = {
+  appClose() {
+    window.close();
+  },
   appSignout() {
     if (navigator.app) {
       navigator.app.exitApp();

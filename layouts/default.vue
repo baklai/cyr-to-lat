@@ -10,7 +10,7 @@
       <template v-slot:prepend>
         <router-link :to="pages.home.href">
           <v-avatar size="42px" class="d-block text-center mx-auto mb-6">
-            <img :src="require('~/static/icon.png')" alt="app-logo" />
+            <img :src="require('~/static/icon.png')" alt="logo" />
           </v-avatar>
         </router-link>
       </template>
@@ -69,7 +69,7 @@
               class="my-2"
               v-for="locale in locales"
               :key="locale.code"
-              @click.prevent.stop="$i18n.setLocale(locale.code)"
+              @click.prevent.stop="toggleLangMode(locale.code)"
             >
               <v-tooltip right>
                 <template v-slot:activator="{ on, attrs }">
@@ -193,8 +193,13 @@ export default {
   data() {
     return {
       drawer: null,
-      langs: false
+      langs: false,
+
+      handler: null
     };
+  },
+  created() {
+    window.addEventListener('beforeunload', this.handler);
   },
   computed: {
     locales() {
@@ -208,6 +213,12 @@ export default {
   },
   methods: {
     exit: function() {
+      // let routeData = this.$router.push('/about');
+      window.close('/about');
+
+      // this.$store.commit('appClose');
+
+      //close();
       // this.$store.commit("appSignout");
       // document.getElementsByTagName("html")[0].remove();
     },
@@ -215,6 +226,12 @@ export default {
     toggleDarkMode: function() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
       localStorage.setItem('theme.dark', this.$vuetify.theme.dark.toString());
+    },
+
+    toggleLangMode: function(code) {
+      this.langs = false;
+      this.$i18n.setLocale(code);
+      localStorage.setItem('lang.code', code);
     }
   }
 };

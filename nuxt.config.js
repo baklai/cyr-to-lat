@@ -42,8 +42,9 @@ export default {
   css: ['~/assets/variables.css'],
 
   plugins: [
-    { src: '~/plugins/themeMode', mode: 'client' },
-    { src: '~/plugins/clipboard.js', mode: 'client' }
+    { src: '~/plugins/theme', mode: 'client' },
+    { src: '~/plugins/language', mode: 'client' },
+    { src: '~/plugins/clipboard', mode: 'client' }
   ],
 
   buildModules: ['@nuxtjs/vuetify'],
@@ -109,11 +110,7 @@ export default {
       }
     ],
     defaultLocale: 'en',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'lang.code',
-      onlyOnRoot: true
-    },
+    detectBrowserLanguage: false,
     vueI18n: {
       fallbackLocale: 'en'
     }
@@ -122,7 +119,7 @@ export default {
   toast: {
     type: 'default',
     theme: 'toasted-primary',
-    position: 'bottom-right',
+    position: 'top-center',
     icon: 'alert-circle-outline',
     duration: 1000,
     iconPack: 'mdi',

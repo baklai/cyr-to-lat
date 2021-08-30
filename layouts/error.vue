@@ -1,6 +1,5 @@
 <template>
   <v-container fill-height fluid>
-    <AppSidebar />
     <v-row align="center" justify="center">
       <v-col cols="12" align="center">
         <v-img

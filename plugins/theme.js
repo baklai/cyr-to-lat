@@ -12,7 +12,7 @@ export default function({ $vuetify }) {
       window.matchMedia('(prefers-color-scheme: dark)').matches
     ) {
       $vuetify.theme.dark = true;
-      localStorage.setItem('theme.dark', $vuetify.theme.dark.toString());
     }
+    localStorage.setItem('theme.dark', $vuetify.theme.dark.toString());
   }
 }
