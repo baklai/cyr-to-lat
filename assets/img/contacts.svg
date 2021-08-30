@@ -20,7 +20,7 @@
 
             .cls-5,
             .cls-7 {
-                fill: #e9eaf2;
+                fill: #fff;
             }
 
             .cls-6 {
@@ -89,11 +89,11 @@
             }
 
             .cls-22 {
-                fill: #e9eaf2;
+                fill: #b1b4c4;
             }
 
             .cls-23 {
-                fill: #f4f4f4;
+                fill: #e9eaf2;
             }
 
             .cls-24 {
