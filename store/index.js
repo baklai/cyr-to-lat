@@ -1,6 +1,8 @@
 import pkg from '~/package.json';
 
 export const state = () => ({
+  openedWindow: null,
+
   author: pkg.author,
   copyright: `Copyright &copy; ${new Date().getFullYear()} ${pkg.author.name}`,
   pages: {
@@ -45,13 +47,17 @@ export const mutations = {
   appClose() {
     window.close();
   },
-  appSignout() {
+  appSignout(state) {
     if (navigator.app) {
       navigator.app.exitApp();
     } else if (navigator.device) {
       navigator.device.exitApp();
     } else {
-      window.close();
+      // window.close();
+
+      state.openedWindow = this.$router.push('/about');
+
+      state.openedWindow.close();
     }
   }
 };

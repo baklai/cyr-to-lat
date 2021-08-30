@@ -213,8 +213,17 @@ export default {
   },
   methods: {
     exit: function() {
-      // let routeData = this.$router.push('/about');
-      window.close('/about');
+      this.$store.commit('appSignout');
+
+      // this.$store.state.openedWindow = this.$router.push('/about');
+
+      // this.$store.state.openedWindow.close();
+
+      //  openedWindow.close();
+
+      // let popup_window = window.open('/cyr-to-lat');
+
+      // popup_window.close();
 
       // this.$store.commit('appClose');
 
