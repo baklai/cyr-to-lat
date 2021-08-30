@@ -8,7 +8,7 @@
           :src="
             error.statusCode === 404
               ? require('~/assets/img/404.svg')
-              : require('~/assets/img/404.svg')
+              : require('~/assets/img/500.svg')
           "
           class="d-block ml-auto mr-auto"
         />

@@ -5,7 +5,7 @@
         <v-img
           contain
           width="600"
-          :src="require('~/assets/img/about.svg')"
+          :src="require('~/assets/img/contacts.svg')"
           class="d-block ml-auto mr-auto"
         />
       </v-col>

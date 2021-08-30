@@ -118,7 +118,7 @@
 
           <v-divider class="mx-4"></v-divider>
 
-          <v-list-item link @click="exit()">
+          <v-list-item link>
             <v-tooltip right>
               <template v-slot:activator="{ on, attrs }">
                 <v-list-item-icon v-bind="attrs" v-on="on">
@@ -193,13 +193,8 @@ export default {
   data() {
     return {
       drawer: null,
-      langs: false,
-
-      handler: null
+      langs: false
     };
-  },
-  created() {
-    window.addEventListener('beforeunload', this.handler);
   },
   computed: {
     locales() {
@@ -212,26 +207,6 @@ export default {
     }
   },
   methods: {
-    exit: function() {
-      this.$store.commit('appSignout');
-
-      // this.$store.state.openedWindow = this.$router.push('/about');
-
-      // this.$store.state.openedWindow.close();
-
-      //  openedWindow.close();
-
-      // let popup_window = window.open('/cyr-to-lat');
-
-      // popup_window.close();
-
-      // this.$store.commit('appClose');
-
-      //close();
-      // this.$store.commit("appSignout");
-      // document.getElementsByTagName("html")[0].remove();
-    },
-
     toggleDarkMode: function() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
       localStorage.setItem('theme.dark', this.$vuetify.theme.dark.toString());
