@@ -3,15 +3,17 @@
 // The variables you want to modify
 // $font-size-root: 20px;
 
-@import "~vuetify/src/styles/styles.sass";
+@import '~vuetify/src/styles/styles.sass';
 
 $material-light: (
   app-bar: #ffffff,
-  background: #ffffff,
+  background: #ffffff
 );
 
 $material-dark: (
   app-bar: #1a202c,
   background: #1a202c,
-  navigation-drawer: #1a202c,
+  navigation-drawer: #1a202c
 );
+
+$tabs-icons-and-text-first-tab-margin-bottom: 0px;

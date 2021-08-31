@@ -140,45 +140,38 @@
       </template>
     </v-navigation-drawer>
 
-    <v-app-bar app bottom fixed flat v-if="!drawer">
+    <v-app-bar app bottom fixed dense flat v-if="!drawer">
       <router-link to="/">
         <v-avatar size="32px" class="d-block text-center mx-auto">
           <img :src="require('~/static/icon.png')" alt="app-logo" />
         </v-avatar>
       </router-link>
 
-      <v-spacer />
-
-      <v-bottom-navigation
-        shift
-        background-color="transparent"
-        style="box-shadow: none !important;"
-        height="90%"
-        class="mx-5"
+      <v-tabs
+        link
+        centered
+        icons-and-text
+        :mobile-breakpoint="0"
+        :slider-size="1"
+        :show-arrows="true"
       >
-        <v-btn icon to="/about">
-          <span>{{ $t('menu.about') }}</span>
-          <v-icon>mdi-information-outline</v-icon>
-        </v-btn>
-
-        <v-btn icon to="/">
-          <span>{{ $t('menu.home') }}</span>
-          <v-icon>mdi-home-outline</v-icon>
-        </v-btn>
-
-        <v-btn icon to="/contacts">
-          <span>{{ $t('menu.contacts') }}</span>
-          <v-icon>mdi-account-circle-outline</v-icon>
-        </v-btn>
-      </v-bottom-navigation>
-
-      <v-spacer />
+        <v-tab to="/about">
+          <span> {{ $t('menu.about') }} </span>
+          <v-icon dense>mdi-information-outline</v-icon>
+        </v-tab>
+        <v-tab to="/">
+          <span> {{ $t('menu.home') }} </span>
+          <v-icon dense>mdi-home-outline</v-icon>
+        </v-tab>
+        <v-tab to="/contacts">
+          <span> {{ $t('menu.contacts') }} </span>
+          <v-icon dense>mdi-account-circle-outline</v-icon>
+        </v-tab>
+      </v-tabs>
 
       <v-bottom-sheet v-model="sheet">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn icon v-bind="attrs" v-on="on">
-            <v-icon>mdi-dots-vertical</v-icon>
-          </v-btn>
+          <v-app-bar-nav-icon v-bind="attrs" v-on="on"></v-app-bar-nav-icon>
         </template>
 
         <v-list flat>
@@ -269,7 +262,9 @@ export default {
   data() {
     return {
       drawer: null,
-      langs: false
+      langs: false,
+
+      active: null
     };
   },
   computed: {
@@ -293,3 +288,26 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.v-tab {
+  font-size: 0.575rem;
+  font-weight: 600;
+  min-width: 0px;
+  padding: 0 10px;
+  text-transform: none;
+}
+
+.v-tab .v-icon {
+  padding: 0%;
+}
+
+.v-slide-group__next,
+.v-slide-group__prev {
+  align-items: center;
+  display: flex;
+  flex: 0 1 52px;
+  justify-content: center;
+  min-width: 12px !important;
+}
+</style>
