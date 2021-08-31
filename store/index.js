@@ -3,23 +3,6 @@ import pkg from '~/package.json';
 export const state = () => ({
   author: pkg.author,
   copyright: `Copyright &copy; ${new Date().getFullYear()} ${pkg.author.name}`,
-  pages: {
-    home: {
-      title: 'Home',
-      icon: 'mdi-home-outline',
-      href: '/'
-    },
-    about: {
-      title: 'About',
-      icon: 'mdi-information-outline',
-      href: '/about'
-    },
-    contacts: {
-      title: 'Contacts',
-      icon: 'mdi-account-circle-outline',
-      href: '/contacts'
-    }
-  },
   social: {
     facebook: {
       title: 'Facebook',

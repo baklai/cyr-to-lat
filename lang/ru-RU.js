@@ -1,8 +1,23 @@
 export default {
-  home: 'Дом',
-  help: 'Помощь',
-  about: 'О нас',
-  contacts: 'Связаться с нами',
+  home: 'Главная',
+  about: 'О сервисе',
+  contacts: 'Контакты',
+
+  menu: {
+    home: 'Главная',
+    about: 'О сервисе',
+    contacts: 'Контакты',
+    translations: 'Переводы',
+    theme: 'Переключение темы',
+    exit: 'Выход'
+  },
+
+  locale: {
+    English: 'Английский',
+    Russia: 'Русский',
+    Ukraine: 'Украинский'
+  },
+
   homepage: {
     title: 'Конвертер паролей из кириллицы в латиницу',
     input_title: 'Конвертер паролей',

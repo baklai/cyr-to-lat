@@ -39,8 +39,6 @@
             <v-btn rounded outlined @click="convert()">
               {{ $t('homepage.input_btn') }}
             </v-btn>
-
-            <v-btn @click="$window.close()">CLOSE</v-btn>
           </v-col>
         </v-row>
       </v-col>

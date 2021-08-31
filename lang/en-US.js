@@ -1,8 +1,23 @@
 export default {
   home: 'Home',
-  help: 'Help',
-  about: 'About us',
-  contacts: 'Contact us',
+  about: 'About',
+  contacts: 'Contact',
+
+  menu: {
+    home: 'Home',
+    about: 'About',
+    contacts: 'Contacts',
+    translations: 'Translations',
+    theme: 'Theme toggle',
+    exit: 'Exit'
+  },
+
+  locale: {
+    English: 'English',
+    Russia: 'Russia',
+    Ukraine: 'Ukraine'
+  },
+
   homepage: {
     title: 'Password converter Cyrillic to Latin',
     input_title: 'Password converter',

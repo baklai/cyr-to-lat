@@ -97,16 +97,16 @@ export default {
         name: 'English'
       },
       {
-        code: 'ua',
-        iso: 'ua-UA',
-        file: 'ua-UA.js',
-        name: 'Ukraine'
-      },
-      {
         code: 'ru',
         iso: 'ru-RU',
         file: 'ru-RU.js',
         name: 'Russia'
+      },
+      {
+        code: 'ua',
+        iso: 'ua-UA',
+        file: 'ua-UA.js',
+        name: 'Ukraine'
       }
     ],
     defaultLocale: 'en',
