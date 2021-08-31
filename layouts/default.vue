@@ -262,9 +262,8 @@ export default {
   data() {
     return {
       drawer: null,
-      langs: false,
-
-      active: null
+      sheet: false,
+      langs: false
     };
   },
   computed: {
@@ -299,15 +298,10 @@ export default {
 }
 
 .v-tab .v-icon {
-  padding: 0%;
+  padding: 1px;
 }
 
-.v-slide-group__next,
-.v-slide-group__prev {
-  align-items: center;
-  display: flex;
-  flex: 0 1 52px;
-  justify-content: center;
-  min-width: 12px !important;
+.v-tabs--icons-and-text > .v-tabs-bar .v-tab > :first-child {
+  margin-bottom: 1px;
 }
 </style>
