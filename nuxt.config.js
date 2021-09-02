@@ -35,7 +35,7 @@ export default {
       {
         name: 'theme-color',
         media: '(prefers-color-scheme: dark)',
-        content: 'black'
+        content: 'red'
       }
     ],
     link: [
@@ -90,7 +90,7 @@ export default {
       lang: 'ru',
       display: 'standalone',
       background_color: '#1a202c',
-      start_url: `/${pkg.name}/`,
+      start_url: `/${pkg.name}/?standalone=true`,
       useWebmanifestExtension: false
     }
   },
