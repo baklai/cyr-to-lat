@@ -27,13 +27,6 @@
           обратную сторону, конвертируя русские слова в набор латинских символов
           (включая специальные знаки: запятые, слэши и пр.).
         </h3>
-        <v-row>
-          <v-col cols="12">
-            <v-btn rounded outlined class="mt-5" to="/">
-              TAKE ME BACK HOME
-            </v-btn>
-          </v-col>
-        </v-row>
       </v-col>
     </v-row>
   </v-container>
