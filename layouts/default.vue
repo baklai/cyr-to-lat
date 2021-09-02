@@ -151,16 +151,20 @@
 
       <v-spacer />
 
+      <v-btn icon @click.prevent="toggleDarkMode">
+        <v-icon>mdi-theme-light-dark</v-icon>
+      </v-btn>
+
       <v-app-bar-nav-icon @click="sheet = !sheet"></v-app-bar-nav-icon>
 
       <v-bottom-sheet v-model="sheet" fullscreen>
         <v-sheet height="100%">
           <v-toolbar dense flat>
-            <v-btn icon @click="sheet = !sheet">
-              <v-icon>mdi-chevron-left</v-icon>
-            </v-btn>
+            <v-avatar size="32px" class="d-block text-center mx-auto mr-2">
+              <img :src="require('~/static/icon.png')" alt="app-logo" />
+            </v-avatar>
 
-            <v-toolbar-title>Back home</v-toolbar-title>
+            <v-toolbar-title>Cyr To Lat</v-toolbar-title>
 
             <v-spacer></v-spacer>
 

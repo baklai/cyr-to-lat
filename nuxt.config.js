@@ -26,6 +26,11 @@ export default {
         hid: 'description',
         name: 'description',
         content: pkg.description || pkg.config.title_description
+      },
+
+      {
+        name: 'apple-mobile-web-app-status-bar-style',
+        content: 'black-translucent'
       }
     ],
     link: [
@@ -62,7 +67,7 @@ export default {
       name: pkg.config.title_description,
       author: pkg.author.name,
       description: pkg.description,
-      theme_color: '#fff',
+      theme_color: 'transparent',
       lang: 'ru',
       ogType: 'website',
       ogHost: pkg.config.host,
