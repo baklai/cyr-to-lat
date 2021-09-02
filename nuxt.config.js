@@ -26,6 +26,12 @@ export default {
         hid: 'description',
         name: 'description',
         content: pkg.description || pkg.config.title_description
+      },
+      {
+        name="theme-color", media="(prefers-color-scheme: light)", content="white"
+      },
+      {
+        name="theme-color", media="(prefers-color-scheme: dark)",  content="black"
       }
     ],
     link: [
