@@ -20,7 +20,7 @@ export default {
 
   homepage: {
     title: 'Конвертер паролей из кириллицы в латиницу',
-    input_title: 'Конвертер паролей',
+    input_title: 'CyrToLat Конвертер',
     input_description:
       'Сервис для перевода строки текста из русской раскладки в английскую.',
     input_placeholder: 'Введите пароль для перевода...',

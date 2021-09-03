@@ -26,16 +26,6 @@ export default {
         hid: 'description',
         name: 'description',
         content: pkg.description || pkg.config.title_description
-      },
-      {
-        name: 'theme-color',
-        media: '(prefers-color-scheme: light)',
-        content: 'white'
-      },
-      {
-        name: 'theme-color',
-        media: '(prefers-color-scheme: dark)',
-        content: 'red'
       }
     ],
     link: [
@@ -47,7 +37,7 @@ export default {
     ]
   },
 
-  loading: { color: '#2196f3' },
+  loading: { color: '#0d47a1' },
 
   css: ['~/assets/variables.css'],
 
@@ -60,6 +50,8 @@ export default {
   buildModules: ['@nuxtjs/vuetify'],
 
   modules: ['@nuxtjs/pwa', '@nuxtjs/meta', '@nuxtjs/i18n', '@nuxtjs/toast'],
+
+  components: true,
 
   pwa: {
     meta: {
@@ -150,7 +142,7 @@ export default {
     treeShake: true,
     defaultAssets: {
       font: {
-        family: 'Train One'
+        family: 'Marmelad'
       }
     },
     icons: {
