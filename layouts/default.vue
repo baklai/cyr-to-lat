@@ -159,7 +159,7 @@
 
       <v-bottom-sheet v-model="sheet" fullscreen>
         <v-sheet height="100%">
-          <v-toolbar dense flat>
+          <v-toolbar dense flat outlined>
             <v-avatar size="32px" class="d-block text-center mx-auto mr-2">
               <img :src="require('~/static/icon.png')" alt="app-logo" />
             </v-avatar>
@@ -217,7 +217,6 @@
               </template>
 
               <v-list-item
-                link
                 v-for="locale in locales"
                 :key="locale.code"
                 @click.prevent.stop="toggleLang(locale.code)"
@@ -307,4 +306,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.v-bottom-navigation {
+  box-shadow: none !important;
+}
+</style>

@@ -148,6 +148,11 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     treeShake: true,
+    defaultAssets: {
+      font: {
+        family: 'Train One'
+      }
+    },
     icons: {
       iconfont: 'mdi'
     },

@@ -1,5 +1,10 @@
 @import '~vuetify/src/styles/styles.sass';
 
+@import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
+
+// Globals
+$body-font-family: 'Train One', cursive;
+
 $material-light: (
   app-bar: #ffffff,
   background: #ffffff,

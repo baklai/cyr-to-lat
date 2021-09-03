@@ -36,7 +36,7 @@
         />
         <v-row>
           <v-col cols="12">
-            <v-btn rounded outlined @click="convert()">
+            <v-btn depressed rounded outlined @click="convert()">
               {{ $t('homepage.input_btn') }}
             </v-btn>
           </v-col>
