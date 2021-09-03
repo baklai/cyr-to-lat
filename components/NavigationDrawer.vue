@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer app touchless mini-variant v-model="drawer" class="pt-4">
+  <v-navigation-drawer app touchless mini-variant v-model="dd" class="pt-4">
     <template v-slot:prepend>
       <router-link to="/">
         <v-avatar size="42px" class="d-block text-center mx-auto mb-6">
@@ -126,7 +126,7 @@ export default {
   props: {
     drawer: {
       type: Boolean,
-      default: false
+      default: null
     },
     locales: {
       type: Array,
@@ -135,8 +135,26 @@ export default {
   },
   data() {
     return {
-      langs: false
+      langs: false,
+      dd: this.drawer
     };
+  },
+  watch: {
+    drawer(value) {
+      return value;
+    }
+  },
+
+  methods: {
+    // dd: function(){
+    // this.$emit('update:dialog', false);
+    // },
+
+    toggleLang: function(code) {
+      this.langs = false;
+      this.$i18n.setLocale(code);
+      localStorage.setItem('lang.code', code);
+    }
   }
 };
 </script>

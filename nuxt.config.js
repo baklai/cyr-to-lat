@@ -37,7 +37,7 @@ export default {
     ]
   },
 
-  loading: { color: '#0d47a1' },
+  loading: false,
 
   css: ['~/assets/variables.css'],
 
@@ -81,7 +81,7 @@ export default {
       description: pkg.description || pkg.config.title_description,
       lang: 'ru',
       display: 'standalone',
-      background_color: '#1a202c',
+      background_color: '#000000',
       start_url: `/${pkg.name}/?standalone=true`,
       useWebmanifestExtension: false
     }
