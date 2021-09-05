@@ -1,11 +1,11 @@
 import colors from 'vuetify/es5/util/colors';
-
 import pkg from './package.json';
 
 export default {
   telemetry: false,
 
   ssr: false,
+
   target: 'static',
 
   cli: {
@@ -13,8 +13,7 @@ export default {
   },
 
   router: {
-    base: `/${pkg.name}/`,
-    prefetchLinks: true
+    base: `/${pkg.name}/`
   },
 
   head: {
@@ -51,12 +50,7 @@ export default {
 
   modules: ['@nuxtjs/pwa', '@nuxtjs/meta', '@nuxtjs/i18n', '@nuxtjs/toast'],
 
-  components: true,
-
   pwa: {
-    icon: {
-      purpose: ['badge']
-    },
     meta: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
@@ -67,7 +61,7 @@ export default {
       name: pkg.config.title_description,
       author: pkg.author.name,
       description: pkg.description,
-      theme_color: '#1a202c',
+      theme_color: '#ffffff',
       lang: 'ru',
       ogType: 'website',
       ogHost: pkg.config.host,
@@ -84,8 +78,8 @@ export default {
       description: pkg.description || pkg.config.title_description,
       lang: 'ru',
       display: 'standalone',
-      background_color: '#000000',
-      start_url: `/${pkg.name}/`,
+      background_color: '#ffffff',
+      start_url: `/${pkg.name}/?standalone=true`,
       useWebmanifestExtension: false
     }
   },
@@ -172,6 +166,7 @@ export default {
   },
 
   build: {
+    publicPath: 'app/',
     babel: {
       plugins: [
         ['@babel/plugin-proposal-class-properties', { loose: true }],
