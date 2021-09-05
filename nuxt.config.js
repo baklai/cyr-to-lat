@@ -51,6 +51,9 @@ export default {
   modules: ['@nuxtjs/pwa', '@nuxtjs/meta', '@nuxtjs/i18n', '@nuxtjs/toast'],
 
   pwa: {
+    icon: {
+      purpose: ['any', 'maskable']
+    },
     meta: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
