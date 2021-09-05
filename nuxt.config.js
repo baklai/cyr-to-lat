@@ -54,6 +54,9 @@ export default {
   components: true,
 
   pwa: {
+    icon: {
+      purpose: ['maskable']
+    },
     meta: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
@@ -83,7 +86,8 @@ export default {
       display: 'standalone',
       background_color: '#000000',
       start_url: `/${pkg.name}/?standalone=true`,
-      useWebmanifestExtension: false
+      useWebmanifestExtension: false,
+      scope: '*.*'
     }
   },
 
