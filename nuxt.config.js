@@ -85,9 +85,8 @@ export default {
       lang: 'ru',
       display: 'standalone',
       background_color: '#000000',
-      start_url: `/${pkg.name}/?standalone=true`,
-      useWebmanifestExtension: false,
-      scope: '*.*'
+      start_url: `/${pkg.name}/`,
+      useWebmanifestExtension: false
     }
   },
 
