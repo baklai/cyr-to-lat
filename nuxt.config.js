@@ -55,7 +55,7 @@ export default {
 
   pwa: {
     icon: {
-      purpose: ['maskable']
+      purpose: ['badge']
     },
     meta: {
       charset: 'utf-8',
