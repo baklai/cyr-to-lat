@@ -78,7 +78,7 @@ export default {
       description: pkg.description || pkg.config.title_description,
       lang: 'ru',
       display: 'standalone',
-      background_color: '#ffffff',
+      background_color: '#1a202c',
       start_url: `/${pkg.name}/?standalone=true`,
       useWebmanifestExtension: false
     }
