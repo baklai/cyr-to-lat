@@ -16,7 +16,6 @@
         <h3 class="subtitle-2 my-2">
           {{ $t('homepage.input_description') }}
         </h3>
-
         <v-text-field
           filled
           rounded
@@ -25,7 +24,6 @@
           :placeholder="$t('homepage.input_placeholder')"
           name="password"
           color="blue darken-1"
-          :type="showeye ? 'text' : 'password'"
           :append-icon="showeye ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
           :rules="cyrRules"
           v-model.trim="cyrInput"
@@ -34,6 +32,9 @@
           @click="showeye = false"
           class="my-5"
         />
+
+        <!-- :type="showeye ? 'text' : 'password'" -->
+
         <v-row>
           <v-col cols="12">
             <v-btn depressed rounded outlined @click="convert()">
@@ -68,7 +69,7 @@ export default {
 
   computed: {
     cyrstr() {
-      return this.$store.state.regex.cyrstr;
+      return this.$store.state.cyrstr;
     }
   },
 
@@ -111,7 +112,7 @@ export default {
         'і',
         'є'
       ];
-      const en = [
+      const lat = [
         'q',
         'w',
         'e',
@@ -151,7 +152,7 @@ export default {
       for (let i = 0; i < cyr.length; i++) {
         const reg = new RegExp(cyr[i], 'mig');
         str = str.replace(reg, function(a) {
-          return a == a.toLowerCase() ? en[i] : en[i].toUpperCase();
+          return a == a.toLowerCase() ? lat[i] : lat[i].toUpperCase();
         });
       }
       return str;

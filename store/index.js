@@ -19,7 +19,8 @@ export const state = () => ({
       icon: 'mdi-linkedin',
       href: pkg.config.social.linkedin
     }
-  }
+  },
+  cyrstr: /^[~`!№_()#@$%\^&*+=\-\[\]\\';.,/{}|\\":<>\?а-яА-ЯёЁїЇєЄіІ0-9]+$/
 });
 
 export const actions = {};
