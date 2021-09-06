@@ -54,7 +54,7 @@ export default {
     meta: {
       mobileAppIOS: true,
       appleStatusBarStyle: 'black-translucent',
-      name: config.app.short_name,
+      name: config.app.name,
       author: author.name,
       description: description,
       theme_color: '#ffffff',
@@ -66,6 +66,7 @@ export default {
         height: '50',
         type: 'image/png'
       },
+      ogUrl: `${config.host}/${name}`,
       nativeUI: true
     },
     manifest: {
