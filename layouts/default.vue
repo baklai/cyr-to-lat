@@ -11,12 +11,7 @@
 
       <v-spacer />
 
-      <v-btn
-        :ripple="false"
-        :retain-focus-on-click="false"
-        icon
-        @click.prevent="toggleDarkMode"
-      >
+      <v-btn icon :ripple="false" @click.prevent="toggleDarkMode">
         <v-icon>mdi-theme-light-dark</v-icon>
       </v-btn>
 
@@ -318,9 +313,9 @@ export default {
   box-shadow: none !important;
 }
 
-/* .v-btn::before {
+.v-btn::before {
   background-color: transparent !important;
-} */
+}
 
 /*
 
