@@ -27,14 +27,12 @@ export const actions = {};
 
 export const mutations = {
   appSignout() {
-    this.$router.push('/');
-    this.$router.go(-(history.length - 1));
-    if (navigator.app) {
-      navigator.app.exitApp();
-    } else if (navigator.device) {
-      navigator.device.exitApp();
+    if (window.navigator.app) {
+      window.navigator.app.exitApp();
+    } else if (window.navigator.device) {
+      window.navigator.device.exitApp();
     } else {
-      window.close();
+      this.$router.go(-(history.length - 1));
     }
   }
 };
