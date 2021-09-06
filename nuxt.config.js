@@ -1,5 +1,5 @@
 import colors from 'vuetify/es5/util/colors';
-import pkg from './package.json';
+import { name, version, description, author, config } from './package.json';
 
 export default {
   telemetry: false,
@@ -9,29 +9,29 @@ export default {
   target: 'static',
 
   cli: {
-    badgeMessages: [`Application: ${pkg.name.toUpperCase()} v${pkg.version}`]
+    badgeMessages: [`Application: ${name.toUpperCase()} v${version}`]
   },
 
   router: {
-    base: `/${pkg.name}/`
+    base: `/${name}/`
   },
 
   head: {
-    titleTemplate: `${pkg.config.title} • %s`,
-    title: pkg.config.description,
+    titleTemplate: `${config.app.short_name} • %s`,
+    title: config.app.name,
     meta: [
       { charset: 'utf-8' },
       {
         hid: 'description',
         name: 'description',
-        content: pkg.description || pkg.config.description
+        content: description || config.app.name
       }
     ],
     link: [
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: `/${pkg.name}/favicon.ico`
+        href: `/${name}/favicon.ico`
       }
     ]
   },
@@ -51,25 +51,17 @@ export default {
   modules: ['@nuxtjs/pwa', '@nuxtjs/meta', '@nuxtjs/i18n', '@nuxtjs/toast'],
 
   pwa: {
-    icon: {
-      purpose: ['any', 'maskable']
-    },
     meta: {
-      charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1',
-      mobileApp: true,
       mobileAppIOS: true,
       appleStatusBarStyle: 'black-translucent',
-      favicon: true,
-      name: pkg.config.description,
-      author: pkg.author.name,
-      description: pkg.description,
+      name: config.app.short_name,
+      author: author.name,
+      description: description,
       theme_color: '#ffffff',
       lang: 'en',
-      ogType: 'website',
-      ogHost: pkg.config.host,
+      ogHost: config.host,
       ogImage: {
-        path: `/${pkg.name}/icon.png`,
+        path: `/${name}/icon.png`,
         width: '50',
         height: '50',
         type: 'image/png'
@@ -77,14 +69,13 @@ export default {
       nativeUI: true
     },
     manifest: {
-      name: pkg.config.description,
-      short_name: pkg.config.title,
-      description: pkg.description || pkg.config.description,
+      name: config.app.name,
+      short_name: config.app.short_name,
+      description: description || config.app.name,
       lang: 'en',
       display: 'standalone',
       background_color: '#ffffff',
       start_url: `/${pkg.name}/?standalone=true`,
-      useWebmanifestExtension: false,
       orientation: 'portrait'
     }
   },
