@@ -75,7 +75,7 @@ export default {
       lang: 'en',
       display: 'standalone',
       background_color: '#ffffff',
-      start_url: `/${pkg.name}/?standalone=true`,
+      start_url: `/${name}/?standalone=true`,
       orientation: 'portrait'
     }
   },
