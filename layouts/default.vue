@@ -16,8 +16,8 @@
       </v-btn>
 
       <v-app-bar-nav-icon
-        @click="sheet = !sheet"
         :ripple="false"
+        @click="sheet = !sheet"
       ></v-app-bar-nav-icon>
 
       <v-bottom-sheet v-model="sheet" fullscreen>
@@ -31,7 +31,7 @@
 
             <v-spacer></v-spacer>
 
-            <v-btn :ripple="false" icon @click="sheet = !sheet">
+            <v-btn icon :ripple="false" @click="sheet = !sheet">
               <v-icon>mdi-close</v-icon>
             </v-btn>
           </v-toolbar>
@@ -250,15 +250,15 @@
       <nuxt />
     </v-main>
     <v-bottom-navigation app fixed height="42" v-if="!drawer">
-      <v-btn plain :ripple="false" to="/about">
+      <v-btn :ripple="false" to="/about">
         <span> {{ $t('menu.about') }} </span>
         <v-icon dense>mdi-information-outline</v-icon>
       </v-btn>
-      <v-btn plain :ripple="false" to="/">
+      <v-btn :ripple="false" to="/">
         <span> {{ $t('menu.home') }} </span>
         <v-icon dense>mdi-home-outline</v-icon>
       </v-btn>
-      <v-btn plain :ripple="false" to="/contacts">
+      <v-btn :ripple="false" to="/contacts">
         <span> {{ $t('menu.contacts') }} </span>
         <v-icon dense>mdi-account-circle-outline</v-icon>
       </v-btn>
@@ -313,18 +313,7 @@ export default {
   box-shadow: none !important;
 }
 
-.v-btn::after {
+.v-btn::before {
   background-color: transparent !important;
 }
-
-/* .v-btn::before {
-  background-color: transparent !important;
-} */
-
-/*
-
-.v-btn--active.no-active::before {
-  background-color: transparent !important;
-  opacity: 0 !important;
-} */
 </style>
