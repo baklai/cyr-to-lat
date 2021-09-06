@@ -81,7 +81,8 @@ export default {
       display: 'standalone',
       background_color: '#ffffff',
       start_url: `/${pkg.name}/?standalone=true`,
-      useWebmanifestExtension: false
+      useWebmanifestExtension: false,
+      orientation: 'landscape'
     }
   },
 

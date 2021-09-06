@@ -1,14 +1,5 @@
 export default function({ $vuetify, app }) {
   if (process.client) {
-    try {
-      if (Platform.OS == 'android') {
-        const response = changeNavigationBarColor('#red');
-        console.log(response); // {success: true}
-      }
-    } catch (e) {
-      console.log(e); // {success: false}
-    }
-
     const theme = localStorage.getItem('theme.dark') || 'false';
     if (theme) {
       if (theme === 'true') {
