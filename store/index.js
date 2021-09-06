@@ -27,6 +27,8 @@ export const actions = {};
 
 export const mutations = {
   appSignout() {
+    $nuxt.$router.go(-(history.length - 1));
+
     if (navigator.app) {
       navigator.app.exitApp();
     } else if (navigator.device) {

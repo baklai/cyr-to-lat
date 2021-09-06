@@ -306,8 +306,10 @@ export default {
     },
 
     toggleExit: function() {
-      this.$router.go(-(history.length - 1));
-      window.close();
+      // this.$router.go(-(history.length - 1));
+      // window.close();
+
+      this.$store.commit('appSignout');
     }
   }
 };
