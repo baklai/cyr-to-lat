@@ -76,16 +76,16 @@ export default {
       name: pkg.config.title_description,
       short_name: pkg.config.title,
       description: pkg.description || pkg.config.title_description,
-      lang: 'ru',
-      display: 'fullscreen',
+      lang: 'en',
+      display: 'minimal-ui',
       background_color: '#ffffff',
-      start_url: `/${pkg.name}/?fullscreen=true`,
+      start_url: `/${pkg.name}/`,
       useWebmanifestExtension: false
     }
   },
 
   i18n: {
-    lazy: true,
+    lazy: false,
     langDir: 'lang/',
     strategy: 'no_prefix',
     locales: [
