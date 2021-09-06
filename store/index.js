@@ -27,10 +27,13 @@ export const actions = {};
 
 export const mutations = {
   appSignout() {
+    this.$router.go(-(history.length - 1));
     if (window.navigator.app) {
       window.navigator.app.exitApp();
+      this.$router.go(-1);
     } else if (window.navigator.device) {
       window.navigator.device.exitApp();
+      this.$router.go(-1);
     } else {
       this.$router.go(-(history.length - 1));
     }

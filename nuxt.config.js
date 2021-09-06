@@ -25,11 +25,6 @@ export default {
         hid: 'description',
         name: 'description',
         content: description || config.app.name
-      },
-      {
-        hid: 'permissions-policy',
-        name: 'permissions-policy',
-        content: 'interest-cohort=()'
       }
     ],
     link: [
