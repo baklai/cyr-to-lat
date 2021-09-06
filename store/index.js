@@ -27,14 +27,14 @@ export const actions = {};
 
 export const mutations = {
   appSignout() {
-    $nuxt.$router.go(-(history.length - 1));
-
     if (navigator.app) {
+      this.$router.go(-(history.length - 1));
       navigator.app.exitApp();
     } else if (navigator.device) {
+      this.$router.go(-(history.length - 1));
       navigator.device.exitApp();
     } else {
-      window.close();
+      this.$router.go(-(history.length - 1));
     }
   }
 };
