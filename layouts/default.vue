@@ -312,12 +312,7 @@ export default {
 .v-bottom-navigation {
   box-shadow: none !important;
 }
-
-/* .v-btn::before {
-  background-color: transparent !important;
-} */
-
-.v-btn:active {
+.v-btn::before {
   background-color: transparent !important;
 }
 </style>
