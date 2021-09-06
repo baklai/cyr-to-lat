@@ -59,7 +59,7 @@ export default {
       description: description,
       theme_color: '#ffffff',
       lang: 'en',
-      ogHost: config.host,
+      ogHost: `${config.host}/${name}`,
       ogImage: {
         path: `/${name}/icon.png`,
         width: '50',
