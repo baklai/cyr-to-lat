@@ -11,11 +11,14 @@
 
       <v-spacer />
 
-      <v-btn icon @click.prevent="toggleDarkMode">
+      <v-btn icon :ripple="false" @click.prevent="toggleDarkMode">
         <v-icon>mdi-theme-light-dark</v-icon>
       </v-btn>
 
-      <v-app-bar-nav-icon @click="sheet = !sheet"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon
+        :ripple="false"
+        @click="sheet = !sheet"
+      ></v-app-bar-nav-icon>
 
       <v-bottom-sheet v-model="sheet" fullscreen>
         <v-sheet height="100%">
@@ -28,7 +31,7 @@
 
             <v-spacer></v-spacer>
 
-            <v-btn icon @click="sheet = !sheet">
+            <v-btn icon :ripple="false" @click="sheet = !sheet">
               <v-icon>mdi-close</v-icon>
             </v-btn>
           </v-toolbar>
@@ -101,7 +104,7 @@
 
             <v-divider inset />
 
-            <v-list-item link>
+            <v-list-item link @click="toggleExit()">
               <v-list-item-icon>
                 <v-icon>mdi-logout-variant</v-icon>
               </v-list-item-icon>
@@ -227,7 +230,7 @@
             </v-list-item-content>
           </v-list-item>
           <v-divider class="mx-4" />
-          <v-list-item link>
+          <v-list-item link @click="toggleExit()">
             <v-tooltip right>
               <template v-slot:activator="{ on, attrs }">
                 <v-list-item-icon v-bind="attrs" v-on="on">
@@ -247,15 +250,15 @@
       <nuxt />
     </v-main>
     <v-bottom-navigation app fixed height="42" v-if="!drawer">
-      <v-btn to="/about">
+      <v-btn :ripple="false" to="/about">
         <span> {{ $t('menu.about') }} </span>
         <v-icon dense>mdi-information-outline</v-icon>
       </v-btn>
-      <v-btn to="/">
+      <v-btn :ripple="false" to="/">
         <span> {{ $t('menu.home') }} </span>
         <v-icon dense>mdi-home-outline</v-icon>
       </v-btn>
-      <v-btn to="/contacts">
+      <v-btn :ripple="false" to="/contacts">
         <span> {{ $t('menu.contacts') }} </span>
         <v-icon dense>mdi-account-circle-outline</v-icon>
       </v-btn>
@@ -300,6 +303,10 @@ export default {
       this.langs = false;
       this.$i18n.setLocale(code);
       localStorage.setItem('lang.code', code);
+    },
+
+    toggleExit: function() {
+      this.$router.go(-(history.length - 1));
     }
   }
 };
@@ -309,13 +316,7 @@ export default {
 .v-bottom-navigation {
   box-shadow: none !important;
 }
-
-/* .v-btn::before {
+.v-btn::before {
   background-color: transparent !important;
 }
-
-.v-btn--active.no-active::before {
-  background-color: transparent !important;
-  opacity: 0 !important;
-} */
 </style>

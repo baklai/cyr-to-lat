@@ -18,13 +18,13 @@ export default {
 
   head: {
     titleTemplate: `${pkg.config.title} • %s`,
-    title: pkg.config.title_description,
+    title: pkg.config.description,
     meta: [
       { charset: 'utf-8' },
       {
         hid: 'description',
         name: 'description',
-        content: pkg.description || pkg.config.title_description
+        content: pkg.description || pkg.config.description
       }
     ],
     link: [
@@ -61,11 +61,11 @@ export default {
       mobileAppIOS: true,
       appleStatusBarStyle: 'black-translucent',
       favicon: true,
-      name: pkg.config.title_description,
+      name: pkg.config.description,
       author: pkg.author.name,
       description: pkg.description,
       theme_color: '#ffffff',
-      lang: 'ru',
+      lang: 'en',
       ogType: 'website',
       ogHost: pkg.config.host,
       ogImage: {
@@ -73,22 +73,24 @@ export default {
         width: '50',
         height: '50',
         type: 'image/png'
-      }
+      },
+      nativeUI: true
     },
     manifest: {
-      name: pkg.config.title_description,
+      name: pkg.config.description,
       short_name: pkg.config.title,
-      description: pkg.description || pkg.config.title_description,
-      lang: 'ru',
+      description: pkg.description || pkg.config.description,
+      lang: 'en',
       display: 'standalone',
       background_color: '#ffffff',
       start_url: `/${pkg.name}/?standalone=true`,
-      useWebmanifestExtension: false
+      useWebmanifestExtension: false,
+      orientation: 'portrait'
     }
   },
 
   i18n: {
-    lazy: true,
+    lazy: false,
     langDir: 'lang/',
     strategy: 'no_prefix',
     locales: [
