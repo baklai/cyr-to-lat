@@ -80,7 +80,7 @@ export default {
       lang: 'en',
       display: 'standalone',
       background_color: '#ffffff',
-      start_url: `/${pkg.name}/app/?standalone=true`,
+      start_url: `/${pkg.name}/?standalone=true`,
       useWebmanifestExtension: false
     }
   },
