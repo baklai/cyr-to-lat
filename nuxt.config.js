@@ -63,7 +63,7 @@ export default {
       description: pkg.description,
       theme_color: '#ffffff',
       lang: 'en',
-      ogType: 'website',
+      ogType: 'standalone',
       ogHost: pkg.config.host,
       ogImage: {
         path: `/${pkg.name}/icon.png`,
@@ -77,9 +77,10 @@ export default {
       short_name: pkg.config.title,
       description: pkg.description || pkg.config.title_description,
       lang: 'en',
-      display: 'minimal-ui',
+      display: 'standalone',
+      scope: '/',
       background_color: '#ffffff',
-      start_url: `/${pkg.name}/`,
+      start_url: `/${pkg.name}/?source=pwa`,
       useWebmanifestExtension: false
     }
   },
