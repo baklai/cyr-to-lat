@@ -104,7 +104,7 @@
 
             <v-divider inset />
 
-            <v-list-item link>
+            <v-list-item link @click="toggleExit()">
               <v-list-item-icon>
                 <v-icon>mdi-logout-variant</v-icon>
               </v-list-item-icon>
@@ -230,7 +230,7 @@
             </v-list-item-content>
           </v-list-item>
           <v-divider class="mx-4" />
-          <v-list-item link>
+          <v-list-item link @click="toggleExit()">
             <v-tooltip right>
               <template v-slot:activator="{ on, attrs }">
                 <v-list-item-icon v-bind="attrs" v-on="on">
@@ -303,6 +303,10 @@ export default {
       this.langs = false;
       this.$i18n.setLocale(code);
       localStorage.setItem('lang.code', code);
+    },
+
+    toggleExit: function() {
+      this.$router.go(-(history.length - 1));
     }
   }
 };
