@@ -313,7 +313,7 @@ export default {
   box-shadow: none !important;
 }
 
-.v-btn--active::before {
+.v-btn--active::after {
   background-color: transparent !important;
 }
 
