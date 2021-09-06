@@ -61,7 +61,7 @@ export default {
       name: pkg.config.title_description,
       author: pkg.author.name,
       description: pkg.description,
-      theme_color: '#ffffff',
+      theme_color: '#1a202c',
       lang: 'ru',
       ogType: 'website',
       ogHost: pkg.config.host,
