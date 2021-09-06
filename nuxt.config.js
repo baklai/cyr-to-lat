@@ -61,8 +61,8 @@ export default {
       name: pkg.config.title_description,
       author: pkg.author.name,
       description: pkg.description,
-      theme_color: '#1a202c',
-      lang: 'ru',
+      theme_color: '#ffffff',
+      lang: 'en',
       ogType: 'website',
       ogHost: pkg.config.host,
       ogImage: {
@@ -78,7 +78,7 @@ export default {
       description: pkg.description || pkg.config.title_description,
       lang: 'ru',
       display: 'standalone',
-      background_color: '#1a202c',
+      background_color: '#ffffff',
       start_url: `/${pkg.name}/?standalone=true`,
       useWebmanifestExtension: false
     }
