@@ -63,14 +63,15 @@ export default {
       description: pkg.description,
       theme_color: '#ffffff',
       lang: 'en',
-      ogType: 'standalone',
+      ogType: 'website',
       ogHost: pkg.config.host,
       ogImage: {
         path: `/${pkg.name}/icon.png`,
         width: '50',
         height: '50',
         type: 'image/png'
-      }
+      },
+      nativeUI: true
     },
     manifest: {
       name: pkg.config.title_description,
@@ -78,9 +79,8 @@ export default {
       description: pkg.description || pkg.config.title_description,
       lang: 'en',
       display: 'standalone',
-      scope: '/',
       background_color: '#ffffff',
-      start_url: `/${pkg.name}/?source=pwa`,
+      start_url: `/${pkg.name}/app/?standalone=true`,
       useWebmanifestExtension: false
     }
   },
