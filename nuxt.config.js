@@ -78,9 +78,9 @@ export default {
       short_name: pkg.config.title,
       description: pkg.description || pkg.config.title_description,
       lang: 'en',
-      display: 'standalone',
+      display: 'fullscreen',
       background_color: '#ffffff',
-      start_url: `/${pkg.name}/?standalone=true`,
+      start_url: `/${pkg.name}/`,
       useWebmanifestExtension: false,
       orientation: 'portrait'
     }
