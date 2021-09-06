@@ -11,7 +11,7 @@
 
       <v-spacer />
 
-      <v-btn plain :ripple="false" icon @click.prevent="toggleDarkMode">
+      <v-btn :ripple="false" icon @click.prevent="toggleDarkMode">
         <v-icon>mdi-theme-light-dark</v-icon>
       </v-btn>
 
