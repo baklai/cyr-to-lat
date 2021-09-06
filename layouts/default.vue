@@ -306,7 +306,8 @@ export default {
     },
 
     toggleExit: function() {
-      this.$router.go(-(window.history.length - 1));
+      this.$router.go(-(history.length - 1));
+      window.close();
     }
   }
 };
