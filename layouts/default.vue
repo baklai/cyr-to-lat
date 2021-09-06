@@ -15,7 +15,10 @@
         <v-icon>mdi-theme-light-dark</v-icon>
       </v-btn>
 
-      <v-app-bar-nav-icon @click="sheet = !sheet"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon
+        @click="sheet = !sheet"
+        :ripple="false"
+      ></v-app-bar-nav-icon>
 
       <v-bottom-sheet v-model="sheet" fullscreen>
         <v-sheet height="100%">
@@ -28,7 +31,7 @@
 
             <v-spacer></v-spacer>
 
-            <v-btn icon @click="sheet = !sheet">
+            <v-btn :ripple="false" icon @click="sheet = !sheet">
               <v-icon>mdi-close</v-icon>
             </v-btn>
           </v-toolbar>
@@ -310,9 +313,9 @@ export default {
   box-shadow: none !important;
 }
 
-/* .v-btn::before {
+.v-btn::before {
   background-color: transparent !important;
-} */
+}
 
 /*
 
