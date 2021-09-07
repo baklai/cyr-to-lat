@@ -11,17 +11,17 @@
 
       <v-col cols="10" xl="3" lg="4" md="5" sm="8">
         <h1 class="font-weight-light display-1">
-          <strong> {{ $t('homepage.input_title') }} </strong>
+          <strong> {{ $t('home.caption') }} </strong>
         </h1>
         <h3 class="subtitle-2 my-2">
-          {{ $t('homepage.input_description') }}
+          {{ $t('home.comment') }}
         </h3>
         <v-text-field
           filled
           rounded
           clearable
           persistent-placeholder
-          :placeholder="$t('homepage.input_placeholder')"
+          :placeholder="$t('home.placeholder')"
           name="password"
           color="blue darken-1"
           :append-icon="showeye ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
@@ -38,7 +38,7 @@
         <v-row>
           <v-col cols="12">
             <v-btn depressed rounded outlined @click="convert()">
-              {{ $t('homepage.input_btn') }}
+              {{ $t('home.button') }}
             </v-btn>
           </v-col>
         </v-row>
@@ -51,7 +51,7 @@
 export default {
   head() {
     return {
-      title: this.$i18n.t('homepage.title')
+      title: this.$i18n.t('home.title')
     };
   },
 
@@ -59,10 +59,9 @@ export default {
     return {
       showeye: true,
       cyrInput: null,
-
       cyrRules: [
-        v => !!v || 'Password is required',
-        v => this.cyrstr.test(v) || 'Examples: а-яА-ЯёЁ0-9'
+        v => !!v || this.$i18n.t('msg.pass_required'),
+        v => this.cyrstr.test(v) || this.$i18n.t('msg.pass_example')
       ]
     };
   },
@@ -166,18 +165,15 @@ export default {
             return this.autoKeyboardLang(letter);
           })
           .join('');
-
         try {
           this.$clipboard(doubles);
           this.cyrInput = null;
-
-          this.$toast.success(`Текст скопирован в буфер обмена!`);
+          this.$toast.success(this.$i18n.t('msg.pass_clipboard'));
         } catch (err) {
-          this.$toast.error('Could not copy text!');
-          console.error('Could not copy text: ', err);
+          this.$toast.error(this.$i18n.t('msg.pass_clipboard_error'));
         }
       } else {
-        this.$toast.error('Введите текст для перевода!');
+        this.$toast.error(this.$i18n.t('msg.pass_undefined'));
       }
     }
   }

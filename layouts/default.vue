@@ -119,6 +119,8 @@
     <v-navigation-drawer
       app
       touchless
+      floating
+      mini-variant-width="72"
       mini-variant
       v-model="drawer"
       class="pt-4"
@@ -229,7 +231,7 @@
               <v-list-item-title>{{ $t('menu.theme') }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          <v-divider class="mx-4" />
+          <v-divider class="mx-6" />
           <v-list-item link @click="toggleExit()">
             <v-tooltip right>
               <template v-slot:activator="{ on, attrs }">
