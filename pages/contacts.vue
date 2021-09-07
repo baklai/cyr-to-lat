@@ -4,7 +4,7 @@
       <v-col cols="10" xl="5" lg="5" md="5" sm="6">
         <v-img
           contain
-          width="300"
+          width="400"
           :src="require('~/assets/img/contacts.svg')"
           class="d-block ml-auto mr-auto"
         />

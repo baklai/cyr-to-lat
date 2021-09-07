@@ -1,7 +1,7 @@
 <template>
-  <v-container fill-height fluid>
+  <v-container fill-height fluid class="pa-3">
     <v-row align="center" justify="space-around">
-      <v-col cols="10" xl="5" lg="5" md="5" sm="6">
+      <v-col cols="10" xl="5" lg="5" md="5" sm="8">
         <v-img
           contain
           :src="require('~/assets/img/home.svg')"
@@ -9,7 +9,7 @@
         />
       </v-col>
 
-      <v-col cols="10" xl="4" lg="4" md="5" sm="10">
+      <v-col cols="10" xl="3" lg="4" md="5" sm="8">
         <h1 class="font-weight-light display-1">
           <strong> {{ $t('homepage.input_title') }} </strong>
         </h1>
