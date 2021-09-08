@@ -27,7 +27,7 @@
           :rules="cyrRules"
           v-model.trim="cyrInput"
           @click:append="showeye = !showeye"
-          @keypress.enter="convert()"
+          @keypress.native.enter="convert()"
           class="my-5"
         />
         <v-row>
