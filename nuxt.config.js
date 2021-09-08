@@ -55,9 +55,6 @@ export default {
   modules: ['@nuxtjs/pwa', '@nuxtjs/meta', '@nuxtjs/i18n', '@nuxtjs/toast'],
 
   pwa: {
-    icon: {
-      purpose: ['any', 'maskable']
-    },
     meta: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
@@ -70,6 +67,7 @@ export default {
       description: description,
       theme_color: '#ffffff',
       lang: 'en',
+      ogType: 'website',
       ogHost: config.host,
       ogImage: {
         path: `/${name}/icon.png`,
@@ -80,7 +78,8 @@ export default {
       ogUrl: `${config.host}/${name}`,
       twitterCard: 'summary_card',
       twitterSite: `${config.host}/${name}`,
-      twitterCreator: author.name
+      twitterCreator: author.name,
+      nativeUI: true
     },
     manifest: {
       name: config.app.name,
