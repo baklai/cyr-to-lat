@@ -17,4 +17,4 @@ $ npm run generate
 
 ## Demo service
 
-URL Service: [Converter Cyr To Lat](https://baklai.github.io/cyr-to-lat/)
+[Converter Cyr To Lat](https://baklai.github.io/cyr-to-lat/)
