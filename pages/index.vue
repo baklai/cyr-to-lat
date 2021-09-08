@@ -22,15 +22,12 @@
           clearable
           persistent-placeholder
           :placeholder="$t('home.placeholder')"
-          color="blue darken-1"
           :type="showeye ? 'text' : 'password'"
           :append-icon="showeye ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
           :rules="cyrRules"
           v-model.trim="cyrInput"
           @click:append="showeye = !showeye"
-          @keypress.down="showeye = true"
           @keypress.enter="convert()"
-          @click="showeye = false"
           class="my-5"
         />
         <v-row>
@@ -55,10 +52,10 @@ export default {
 
   data() {
     return {
-      showeye: true,
+      showeye: false,
       cyrInput: null,
       cyrRules: [
-        v => !!v || this.$i18n.t('msg.pass_required'),
+        v => !!v,
         v => this.cyrstr.test(v) || this.$i18n.t('msg.pass_example')
       ]
     };
@@ -156,7 +153,7 @@ export default {
     },
 
     convert: function() {
-      if (this.cyrInput) {
+      if (this.cyrInput && this.cyrstr.test(this.cyrInput)) {
         let doubles = this.cyrInput
           .split('')
           .map(letter => {
@@ -178,3 +175,20 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  box-shadow: transparent;
+  -webkit-text-fill-color: #0077ff;
+  transition: background-color 5000s ease-in-out 0s;
+}
+</style>

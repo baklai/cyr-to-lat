@@ -74,7 +74,9 @@ export default {
         type: 'image/png'
       },
       ogUrl: `${config.host}/${name}`,
-      nativeUI: true
+      twitterCard: 'summary_card',
+      twitterSite: `${config.host}/${name}`,
+      twitterCreator: author.name
     },
     manifest: {
       name: config.app.name,
@@ -124,7 +126,7 @@ export default {
     theme: 'toasted-primary',
     position: 'top-center',
     icon: 'alert-circle-outline',
-    duration: 1000,
+    duration: 3000,
     iconPack: 'mdi',
     register: [
       {

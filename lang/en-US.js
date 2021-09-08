@@ -38,7 +38,6 @@ export default {
   },
 
   msg: {
-    pass_required: 'Line of text is required!',
     pass_example: 'Examples: ~`!№_()#@$%^&*+=-[]\';.,/{}|":<>а-яА-ЯёЁїЇєЄіІ0-9',
     pass_clipboard: 'The line of text has been copied to the clipboard!',
     pass_clipboard_error: 'Could not copy line of text!',
