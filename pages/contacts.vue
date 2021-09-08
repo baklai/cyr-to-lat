@@ -12,33 +12,43 @@
       <v-col cols="10" xl="4" lg="4" md="5" sm="10">
         <v-card flat tile class="text-center">
           <h2 class="font-weight-light">
-            Hello & Welcome
+            {{ $t('contacts.caption') }}
           </h2>
           <h1 class="font-weight-light display-1 my-5">
-            <strong>I Am Dmitrii Baklai</strong>
+            <strong>{{ $t('contacts.author') }}</strong>
           </h1>
           <h4 class="font-weight-light my-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-            tempore vero ut incidunt. Facere ea explicabo error incidunt ut at
-            illo ipsum nemo necessitatibus aperiam nobis magni, molestiae
-            exercitationem quas.
+            {{ $t('contacts.comment') }}
           </h4>
+
           <v-card-text>
-            <v-btn class="mx-4 " icon>
+            <v-btn
+              icon
+              class="mx-4"
+              target="_blank"
+              :href="social.facebook.href"
+            >
               <v-icon size="24px">
                 {{ social.facebook.icon }}
               </v-icon>
             </v-btn>
-            <v-btn class="mx-4 " icon>
+            <v-btn icon class="mx-4" target="_blank" :href="social.github.href">
               <v-icon size="24px">
                 {{ social.github.icon }}
               </v-icon>
             </v-btn>
-            <v-btn class="mx-4 " icon>
+            <v-btn
+              icon
+              class="mx-4"
+              target="_blank"
+              :href="social.linkedin.href"
+            >
               <v-icon size="24px">
                 {{ social.linkedin.icon }}
               </v-icon>
             </v-btn>
+            <br class="my-5" />
+            <span>{{ copyright }}</span>
           </v-card-text>
         </v-card>
       </v-col>
@@ -50,7 +60,7 @@
 export default {
   head() {
     return {
-      title: this.$i18n.t('about.title')
+      title: this.$i18n.t('contacts.title')
     };
   },
   data() {
@@ -59,6 +69,9 @@ export default {
   computed: {
     social() {
       return this.$store.state.social;
+    },
+    copyright() {
+      return this.$store.state.copyright;
     }
   }
 };

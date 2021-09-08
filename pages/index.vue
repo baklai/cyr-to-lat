@@ -22,19 +22,17 @@
           clearable
           persistent-placeholder
           :placeholder="$t('home.placeholder')"
-          name="password"
           color="blue darken-1"
+          :type="showeye ? 'text' : 'password'"
           :append-icon="showeye ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
           :rules="cyrRules"
           v-model.trim="cyrInput"
           @click:append="showeye = !showeye"
+          @keypress.down="showeye = true"
           @keypress.enter="convert()"
           @click="showeye = false"
           class="my-5"
         />
-
-        <!-- :type="showeye ? 'text' : 'password'" -->
-
         <v-row>
           <v-col cols="12">
             <v-btn depressed rounded outlined @click="convert()">
@@ -168,6 +166,7 @@ export default {
         try {
           this.$clipboard(doubles);
           this.cyrInput = null;
+          this.showeye = false;
           this.$toast.success(this.$i18n.t('msg.pass_clipboard'));
         } catch (err) {
           this.$toast.error(this.$i18n.t('msg.pass_clipboard_error'));

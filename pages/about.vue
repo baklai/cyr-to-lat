@@ -6,16 +6,14 @@
           <h1 class="font-weight-light display-1 my-10">
             <strong> {{ $t('about.caption') }} </strong>
           </h1>
-          <h4 class="font-weight-light my-2 text-justify">
+          <h4
+            class="font-weight-light my-2 text-justify"
+            style="white-space: pre-line;"
+          >
             {{ $t('about.comment') }}
           </h4>
           <v-card-text> </v-card-text>
         </v-card>
-
-        <h1 class="font-weight-light display-1">
-          <strong></strong>
-        </h1>
-        <h3 class="subtitle-2 my-2"></h3>
       </v-col>
       <v-col cols="10" xl="5" lg="5" md="5" sm="8">
         <v-img

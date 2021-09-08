@@ -2,7 +2,7 @@ import { author, config } from '~/package.json';
 
 export const state = () => ({
   author: author,
-  copyright: `Copyright &copy; ${new Date().getFullYear()} ${author.name}`,
+  copyright: `Copyright \u00A9 ${new Date().getFullYear()} ${author.name}`,
   social: {
     facebook: {
       title: 'Facebook',

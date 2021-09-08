@@ -25,6 +25,10 @@ export default {
         hid: 'description',
         name: 'description',
         content: description || config.app.name
+      },
+      {
+        name: 'google',
+        content: 'notranslate'
       }
     ],
     link: [

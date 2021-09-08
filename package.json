@@ -1,7 +1,7 @@
 {
   "name": "cyr-to-lat",
   "version": "1.0.0",
-  "description": "Service for converting passwords from Russian to English. It is aimed at users who use passwords in Russian (encrypted in Russian layout keyboard).",
+  "description": "Service for converting a line of text from Russian to English. It is aimed at users who use passwords in Russian (encrypted in Russian layout keyboard).",
   "author": {
     "name": "Dmitrii Baklai",
     "email": "d.n.baklai@gmail.com",

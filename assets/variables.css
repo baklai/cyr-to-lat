@@ -9,6 +9,14 @@ body {
   overflow-y: auto !important;
 }
 
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
 *:focus {
   outline: none !important;
 }
