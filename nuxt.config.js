@@ -59,8 +59,12 @@ export default {
       purpose: ['any', 'maskable']
     },
     meta: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+      mobileApp: true,
       mobileAppIOS: true,
       appleStatusBarStyle: 'black-translucent',
+      favicon: true,
       name: config.app.name,
       author: author.name,
       description: description,
@@ -86,6 +90,7 @@ export default {
       display: 'standalone',
       background_color: '#ffffff',
       start_url: `/${name}/?standalone=true`,
+      useWebmanifestExtension: false,
       orientation: 'portrait'
     }
   },
