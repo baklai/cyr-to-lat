@@ -55,8 +55,10 @@ export default {
       showeye: false,
       cyrInput: null,
       cyrRules: [
-        v => !!v,
-        v => this.cyrstr.test(v) || this.$i18n.t('msg.pass_example')
+        v => {
+          if (v) return this.cyrstr.test(v) || this.$i18n.t('msg.pass_example');
+          else return true;
+        }
       ]
     };
   },
@@ -175,20 +177,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  border: none;
-  box-shadow: transparent;
-  -webkit-text-fill-color: #0077ff;
-  transition: background-color 5000s ease-in-out 0s;
-}
-</style>
