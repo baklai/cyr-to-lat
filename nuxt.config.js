@@ -55,6 +55,9 @@ export default {
   modules: ['@nuxtjs/pwa', '@nuxtjs/meta', '@nuxtjs/i18n', '@nuxtjs/toast'],
 
   pwa: {
+    icon: {
+      purpose: ['any', 'maskable']
+    },
     meta: {
       mobileAppIOS: true,
       appleStatusBarStyle: 'black-translucent',
