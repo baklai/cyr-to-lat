@@ -29,6 +29,10 @@ export default {
       {
         name: 'google',
         content: 'notranslate'
+      },
+      {
+        name: 'google-site-verification',
+        content: 'kkxv3GtC_PAzcE2mWt8qJl_WndC5G-1rgbzP6yKbSHo'
       }
     ],
     link: [
